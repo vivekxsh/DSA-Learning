@@ -8,4 +8,4 @@
 
 ### SYNTAX
 
-![syntax](<Screenshot 2025-06-05 223632-1.png>)
+![syntax](image2.png)
