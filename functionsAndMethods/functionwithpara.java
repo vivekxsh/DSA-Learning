@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class functionwithpara {
 
     // Function to add two numbers
-    public static int add(int a, int b) {
+    public static int calculateSum(int a, int b) {
         return a + b;
     }
 
@@ -15,7 +15,7 @@ public class functionwithpara {
         int a = sc.nextInt();
         System.out.print("Enter the second number: ");
         int b = sc.nextInt();
-        int sum = add(a, b);
+        int sum = calculateSum(a, b);
         System.out.println("The sum of " + a + " and " + b + " is: " + sum);
         sc.close();
     }
