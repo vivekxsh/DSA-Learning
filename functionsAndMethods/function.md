@@ -246,3 +246,7 @@ public class binomialCoefficient {
 #### -> Types of methods
 
 ![Method types](image7.png)
+
+#### -> Function Overloading
+
+![Function overloading](image8.png)
