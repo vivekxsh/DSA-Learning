@@ -8,6 +8,13 @@ public class callByValue {
         a = b;
         b = temp;
 
+        // swap without using temporary variable
+        /*
+         * a = a + b;
+         * b = a - b;
+         * a = a - b;
+         */
+
         /*
          * This function swaps the values of a and b, but since Java is a pass-by-value
          * (call-by-value)

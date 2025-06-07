@@ -67,7 +67,7 @@ public class functionwithpara {
 
 ![What happen in the memory](image4.png)
 
-**_Java Call by value_**
+**_Java always Call by value_**
 
 ```java
 package functionsAndMethods;
