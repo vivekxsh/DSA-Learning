@@ -239,6 +239,10 @@ public class binomialCoefficient {
 
 ```
 
-##### Another way of solving Binomial Coefficient question
+#### -> Another way of solving Binomial Coefficient question
 
 ![Binomial Coefficient](image6.png)
+
+#### -> Types of methods
+
+![Method types](image7.png)
