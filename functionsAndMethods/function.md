@@ -191,3 +191,54 @@ public class factorial {
 }
 
 ```
+
+**_->Calculate Binomial Coefficient_**
+$$ C(n, k) = \frac{n!}{k! \times (n-k)!} $$
+
+### Example:
+
+To calculate the number of ways to choose 2 items from a set of 4 items (C(4, 2)):
+
+$$ C(4, 2) = \frac{4!}{2! \times (4-2)!} = \frac{4!}{2! \times 2!} = \frac{4 \times 3 \times 2 \times 1}{(2 \times 1) \times (2 \times 1)} = \frac{24}{2 \times 2} = \frac{24}{4} = 6 $$
+
+```java
+package functionsAndMethods;
+
+import java.util.Scanner;
+
+public class binomialCoefficient {
+
+    // Function to calculate Binomial Coefficient C(n,r)
+    static int calculateBinomialCoefficient(int n, int r) {
+        if (r > n) {
+            return 0;
+        }
+        if (r == 0 || r == n) {
+            return 1;
+        }
+
+        return calculateBinomialCoefficient(n - 1, r - 1) + calculateBinomialCoefficient(n - 1, r);
+    }
+
+    public static void main(String[] args) {
+        // Binomial Coefficient is a way to calculate the number of ways to choose k
+        // elements from a set of n elements.
+        // It is denoted as C(n, k) or nCk and is calculated using the formula:
+        // C(n, r) = n! / (r! * (n - r)!)
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the value of n: ");
+        int n = sc.nextInt();
+        System.out.print("Enter the value of r: ");
+        int r = sc.nextInt();
+        int binomialCoefficient = calculateBinomialCoefficient(n, r);
+        System.out.println("The Binomial Coefficient C(" + n + ", " + r + ") is: " + binomialCoefficient);
+        sc.close();
+    }
+}
+
+```
+
+##### Another way of solving Binomial Coefficient question
+
+![Binomial Coefficient](image6.png)
