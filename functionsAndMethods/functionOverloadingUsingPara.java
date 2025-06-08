@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 // Function Overloading Example in Java
 // This program demonstrates function overloading by defining multiple 'add' methods with different parameters.
-public class functionOverloading {
+public class functionOverloadingUsingPara {
 
     // Function to add two integers
     public static int add(int a, int b) {
