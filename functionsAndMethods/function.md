@@ -30,7 +30,6 @@ public class functionsWithoutPara {
 
     }
 }
-
 ```
 
 **_Functions with parameter_**
@@ -61,8 +60,6 @@ public class functionwithpara {
         sc.close();
     }
 }
-
-
 ```
 
 ![What happen in the memory](image4.png)
@@ -116,7 +113,6 @@ public class callByValue {
         System.out.println("B = " + b);
     }
 }
-
 ```
 
 **_->Calculate the product of two number_**
@@ -145,7 +141,6 @@ public class productOfTwoNum {
         sc.close();
     }
 }
-
 ```
 
 **_->Calculate the factorial of N_**
@@ -189,7 +184,6 @@ public class factorial {
 
     }
 }
-
 ```
 
 **_->Calculate Binomial Coefficient_**
@@ -236,7 +230,6 @@ public class binomialCoefficient {
         sc.close();
     }
 }
-
 ```
 
 #### -> Another way of solving Binomial Coefficient question
@@ -289,7 +282,6 @@ public class functionOverloading {
         sc.close();
     }
 }
-
 ```
 
 #### -> Function Overloading Using Data Types
@@ -332,6 +324,42 @@ public class functionOverloadingUsingDTypes {
         System.out.println("Addition of two floats: " + add(5.4f, 6.9f));
         System.out.println("Addition of two doubles: " + add(5.5, 10.5));
         System.out.println("Addition of two strings: " + add("Hello, ", "World!"));
+    }
+}
+```
+
+#### -> Program to check for Prime number.
+
+#### -> CODE
+
+```java
+package functionsAndMethods;
+
+public class prime {
+
+    // Function to check if a number is prime
+    // A prime number is a natural number greater than 1 that cannot be formed by
+    // multiplying two smaller natural numbers.
+    static boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int n = 29;
+        if (isPrime(n)) {
+            System.out.println(n + " is a prime number.");
+        } else {
+            System.out.println(n + " is not a prime number.");
+        }
     }
 }
 ```
