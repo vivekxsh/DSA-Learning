@@ -23,5 +23,7 @@ public class pairsInArray {
             }
             System.out.println();
         }
+
+        sc.close();
     }
 }
