@@ -44,6 +44,7 @@ public class subarraySumPrefix {
             arr[i] = sc.nextInt();
         }
 
+        // int arr[] = { 1, -2, 6, -1, 3 };
         sum(arr);
 
         sc.close();
