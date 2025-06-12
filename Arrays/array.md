@@ -222,3 +222,149 @@ public class subArray {
     }
 }
 ```
+
+#### -> Calculate maximum subarray sum
+
+```java
+package Arrays;
+
+import java.util.Scanner;
+
+public class maxSubSum {
+
+    public static void sum(int[] arr) {
+        int n = arr.length;
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int currentSum = 0;
+                for (int k = i; k <= j; k++) {
+                    currentSum += arr[k];
+                }
+                System.out.println("Current sum: " + currentSum);
+                if (currentSum > maxSum) {
+                    maxSum = currentSum;
+                }
+            }
+        }
+
+        System.out.println("Maximum subarray sum is: " + maxSum);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements in the array: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        sum(arr);
+
+        sc.close();
+    }
+}
+```
+
+#### -> Calculate maximum subarray sum by the help of prefix sum array
+
+```java
+package Arrays;
+
+import java.util.Scanner;
+
+public class subarraySumPrefix {
+
+    public static void sum(int arr[]) {
+        int n = arr.length;
+        int maxSum = Integer.MIN_VALUE;
+        int currentSum = 0;
+
+        int[] prefix = new int[n];
+
+        prefix[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            prefix[i] = prefix[i - 1] + arr[i];
+        }
+
+        for (int i = 0; i < n; i++) {
+            int start = i;
+            for (int j = i + 1; j < n; j++) {
+                int end = j;
+
+                currentSum = 0;
+
+                currentSum = start == 0 ? prefix[end] : prefix[end] - prefix[start - 1];
+
+                if (currentSum > maxSum) {
+                    maxSum = currentSum;
+                }
+            }
+        }
+
+        System.out.println("Maximum subarray sum is: " + maxSum);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements in the array: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // int arr[] = { 1, -2, 6, -1, 3 };
+        sum(arr);
+
+        sc.close();
+    }
+}
+```
+
+#### -> Calculate maximum subarray sum by the help of kadane's
+
+```java
+package Arrays;
+
+import java.util.Scanner;
+
+public class maxSubarrayKadanes {
+
+    static void kadanesSum(int arr[]) {
+        int maxSum = Integer.MIN_VALUE;
+        int currentSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            currentSum = currentSum + arr[i];
+            if (currentSum < 0) {
+                currentSum = 0;
+            }
+
+            maxSum = Math.max(currentSum, maxSum);
+        }
+
+        System.out.println("Maximum subarray sum is: " + maxSum);
+    }
+
+    public static void main(String[] args) {
+        // int arr[] = { 1, -2, 6, -1, 3 };
+        // int arr[] = { -2, -3, 4, -1, -2, 1, 5, -3 };
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements in the array: ");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.print("Enter the elements of the array: ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        kadanesSum(arr);
+        sc.close();
+    }
+}
+```
