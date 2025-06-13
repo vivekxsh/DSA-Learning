@@ -6,4 +6,8 @@
 
 ### Real life examples of 2D Array
 
-![alt text](image.png)
+![Real life example](image.png)
+
+### Representation of 2D Array
+
+![Representation](image2.png)
