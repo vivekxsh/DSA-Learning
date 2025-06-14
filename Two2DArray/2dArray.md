@@ -49,3 +49,5 @@ public class CreationOf2DArray {
 ### 2D Array in memory
 
 ![Array in memory](image3.png)
+
+#### -> Spiral Matrix
