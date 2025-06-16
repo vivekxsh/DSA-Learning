@@ -51,3 +51,5 @@ public class CreationOf2DArray {
 ![Array in memory](image3.png)
 
 #### -> Spiral Matrix
+
+![alt text](image4.png)
