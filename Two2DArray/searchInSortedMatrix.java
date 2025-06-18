@@ -3,6 +3,24 @@ package Two2DArray;
 import java.util.Scanner;
 
 public class searchInSortedMatrix {
+
+    public static boolean stairCaseSearch(int[][] arr, int key) {
+        int row = 0, col = arr[0].length - 1;
+
+        while (row < arr.length && col >= 0) {
+            if (arr[row][col] == key) {
+                System.out.println("Element found at position: (" + row + ", " + col + ")");
+                return true;
+            } else if (key < arr[row][col]) {
+                col--;
+            } else {
+                row++;
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of rows and columns of the matrix: ");
@@ -29,12 +47,11 @@ public class searchInSortedMatrix {
 
         System.out.print("Enter the element to search: ");
         int key = sc.nextInt();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (arr[i][j] == key) {
-                    System.out.println("Element found at position: (" + i + ", " + j + ")");
-                }
-            }
+
+        if (stairCaseSearch(arr, key)) {
+            System.out.println("Element found");
+        } else {
+            System.out.println("Element not found");
         }
 
         sc.close();
