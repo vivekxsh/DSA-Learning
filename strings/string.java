@@ -12,9 +12,12 @@ public class string {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Get the string input from user : ");
-        String s = sc.next();
+        String s = sc.nextLine();
 
         System.out.println(s);
+
+        System.out.println("String length function");
+        System.out.println(s.length());
 
         sc.close();
 
