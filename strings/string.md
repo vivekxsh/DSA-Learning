@@ -21,6 +21,9 @@ public class string {
 
         System.out.println(s);
 
+        System.out.println("String length function");
+        System.out.println(s.length());
+
         sc.close();
 
     }
