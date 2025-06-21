@@ -212,3 +212,45 @@ public class largestString {
     }
 }
 ```
+
+### -> Why Java Strings are Immutable?\*
+
+**_In Java, strings are immutable means their values cannot be changed once they are created. This feature enhances performance, security, and thread safety. In this article, we are going to learn why strings are immutable in Java and how this benefits Java applications._**
+
+### -> What Does Immutable Mean?\*
+
+**_When we say something is immutable, it means that once it is created, it cannot be changed. In Java, this concept applies to strings, which means that once a string object is created, its content cannot be changed. If we try to change a string, Java does not modify the original one, it creates a new string object instead._**
+
+### -> How are Strings Immutable in Java?\*
+
+**_Java strings are immutable to make sure memory is used efficiently. Strings in Java that are specified as immutable as the content is shared storage in a single pool to minimize creating a copy of the same value. String class and all wrapper classes in Java that include Boolean, Character, Byte, Short, Integer, Long, Float, and Double are immutable. A user is free to create immutable classes of their own._**
+
+### String V/S StringBuilder in java
+
+### ->String
+
+### Immutability:
+
+**_String objects are immutable, meaning their value cannot be changed after creation. Any operation that appears to modify a String, such as concatenation, actually creates a new String object in memory._**
+
+### Thread-Safety:
+
+**_String objects are inherently thread-safe due to their immutability. Multiple threads can access a String without concerns about data corruption._**
+
+### Performance:
+
+**_For a small number of concatenations or when string content is largely static, String can be efficient. However, frequent modifications or concatenations lead to the creation of many intermediate String objects, which can be inefficient in terms of memory and performance._**
+
+### ->StringBuilder
+
+### Mutality:
+
+**_StringBuilder objects are mutable, allowing their content to be modified directly without creating new objects for each change. Methods like append(), insert(), and delete() modify the StringBuilder in place._**
+
+### Thread-Safety:
+
+**_StringBuilder is not thread-safe. It is designed for use in single-threaded environments. If string manipulation is required in a multi-threaded context and thread-safety is crucial, StringBuffer (which is synchronized) should be used instead._**
+
+### performance:
+
+**_StringBuilder offers superior performance for frequent string modifications or concatenations, especially within loops, as it avoids the overhead of creating new objects repeatedly._**
