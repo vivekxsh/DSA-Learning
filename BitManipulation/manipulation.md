@@ -38,3 +38,17 @@ public class binaryOR {
     }
 }
 ```
+
+**_Binary XOR ( ^ ) operator_**
+![XOR operator](image6.png)
+**_-> CODE_**
+
+```java
+package BitManipulation;
+
+public class binaryXOR {
+    public static void main(String[] args) {
+        System.out.println("The XOR(^) operation of two numbers : " + (5 ^ 6));
+    }
+}
+```
