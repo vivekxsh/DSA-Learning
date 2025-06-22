@@ -6,3 +6,5 @@
 ![number system](image2.png)
 
 **_Bitwise operator_**
+
+![operator](image3.png)
