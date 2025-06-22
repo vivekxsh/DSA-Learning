@@ -74,7 +74,7 @@ public class binaryOneComplement {
 **_Binary Left shift operator ( << )_**
 ![left shift](image10.png)
 
-**_-> Formula [ (a << b) = a _ 2^b ]\***
+**\_-> Formula [ (a << b) = a * 2^b ]\***
 **_-> CODE_**
 
 ```java
@@ -87,6 +87,27 @@ public class binaryLeftShift {
         /*
          * Formula for left shift
          * a << b = (a * 2^b)
+         */
+    }
+}
+```
+
+**_Binary Right shift operator ( >> )_**
+![right shift](image11.png)
+
+**_-> Formula [(a >> b) = a/2^b]_**
+**_-> CODE_**
+
+```java
+package BitManipulation;
+
+public class binaryRightShift {
+    public static void main(String[] args) {
+        System.out.println("Right shift ( >> ) operator --> " + (7 >> 1));
+
+        /*
+         * Formula
+         * a >> b = a/(2)^b
          */
     }
 }
