@@ -4,3 +4,5 @@
 ![number system](image.png)
 ![number system](image1.png)
 ![number system](image2.png)
+
+**_Bitwise operator_**
