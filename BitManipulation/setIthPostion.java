@@ -20,5 +20,7 @@ public class setIthPostion {
 
         System.out.println(setIthBit(n, i));
 
+        sc.close();
+
     }
 }
