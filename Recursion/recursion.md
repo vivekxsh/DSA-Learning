@@ -44,3 +44,38 @@ public class printNumberFromNto1 {
 
 **_Stack Overflow_**
 ![overflow](image7.png)
+
+**_-> Problem to print a number from 1 to n increasing order_**
+![print number](image8.png)
+**_Call Stack_**
+![call stack](image9.png)
+
+```java
+package Recursion;
+
+import java.util.Scanner;
+
+public class printNumberFrom1toN {
+    public static void printNumber(int n) {
+
+        if (n == 0) {
+            return;
+        }
+
+        printNumber(n - 1);
+
+        System.out.print(n + " ");
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number: ");
+        int n = sc.nextInt();
+
+        printNumber(n);
+
+        sc.close();
+    }
+}
+```
