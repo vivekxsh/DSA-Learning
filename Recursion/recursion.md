@@ -3,3 +3,9 @@
 ![Recursion](image.png)
 ![Recursion](image1.png)
 ![Recusion](image2.png)
+
+**_-> How a recursive function gets called_**
+![call of function](image5.png)
+
+**_-> Three steps in recursive function_**
+![three steps](image4.png)
