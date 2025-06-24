@@ -41,3 +41,6 @@ public class printNumberFromNto1 {
     }
 }
 ```
+
+**_Stack Overflow_**
+![overflow](image7.png)
