@@ -1,5 +1,7 @@
 ### Recursion -> (Recursion is a method of solving a computational problem where the solution depends on a solutions to smallerinstance of the same problem)
 
+**_-> In other words a function that calls itself_**
+
 ![Recursion](image.png)
 ![Recursion](image1.png)
 ![Recusion](image2.png)
@@ -77,5 +79,36 @@ public class printNumberFrom1toN {
 
         sc.close();
     }
+}
+```
+
+**_-> Problem to calculate the factorial of n_**
+**_(0! = 1)_**
+![factorial](image10.png)
+
+```java
+package Recursion;
+
+import java.util.Scanner;
+
+public class factorial {
+    static int factorialOfN(int n) {
+        if (n == 0) {
+            return 1;
+        }
+
+        return n * factorialOfN(n - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the n for factorial: ");
+        int n = sc.nextInt();
+
+        System.out.println("The factorial of " + n + " is: " + factorialOfN(n));
+
+        sc.close();
+    }
+
 }
 ```
