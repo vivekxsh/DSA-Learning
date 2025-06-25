@@ -318,3 +318,39 @@ public class lastOccurence {
     }
 }
 ```
+
+**_-> Find the power of x power n_**
+![power](image19.png)
+**_Call Stack_**
+![call stack](image20.png)
+![call stack](image21.png)
+
+```java
+package Recursion;
+
+import java.util.Scanner;
+
+public class powerN {
+    public static int xPowerN(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+
+        return x * xPowerN(x, n - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter x: ");
+        int x = sc.nextInt();
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+
+        System.out.println("The power of (x power n) : " + xPowerN(x, n));
+
+        sc.close();
+
+    }
+
+}
+```
