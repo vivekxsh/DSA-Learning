@@ -226,6 +226,9 @@ public class arrayIsSortedOrNot {
 **_-> Find the first occurence of the element_**
 ![occurence](image16.png)
 
+**_Stack Analysis_**
+![stack analysis](image17.png)
+
 ```java
 package Recursion;
 
