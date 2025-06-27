@@ -398,3 +398,11 @@ public class optimizedPowerN {
     }
 }
 ```
+
+**_-> Tiling Problem_**
+**_Solve the tiling problem where you are supposed to find the number of ways to arrange tiles on the floor_**
+![tiling](image24.png)
+![tiling](image25.png)
+![tiling](image26.png)
+![tiling](image27.png)
+![tiling](image28.png)
