@@ -400,9 +400,43 @@ public class optimizedPowerN {
 ```
 
 **_-> Tiling Problem_**
-**_Solve the tiling problem where you are supposed to find the number of ways to arrange tiles on the floor_**
+**_: Solve the tiling problem where you are supposed to find the number of ways to arrange tiles on the floor_**
 ![tiling](image24.png)
 ![tiling](image25.png)
 ![tiling](image26.png)
 ![tiling](image27.png)
 ![tiling](image28.png)
+
+```java
+package Recursion;
+
+public class tilingProblem {
+    public static int findWays(int n) {
+        // base case
+
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+
+        // kaam (work)
+
+        // vertical choice
+        int fnm1 = findWays(n - 1);
+
+        // horizontal choice
+        int fnm2 = findWays(n - 2);
+
+        // total ways
+        int totalWays = fnm1 + fnm2;
+
+        return totalWays;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(findWays(4));
+
+    }
+
+}
+```
