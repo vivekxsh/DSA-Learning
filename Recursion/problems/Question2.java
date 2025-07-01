@@ -66,6 +66,25 @@ public class Question2 {
 
     }
 
+    static void convertString2(int n) {
+
+        StringBuilder sb = new StringBuilder();
+
+        while (n != 0) {
+            int lastDigit = n % 10;
+            sb.append(digits[lastDigit] + " ");
+            n = n / 10;
+        }
+
+        String str = sb.toString();
+        String arr[] = str.split(" ");
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+
+    }
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -75,6 +94,8 @@ public class Question2 {
         System.out.println(convertString(n));
 
         convertString1(n);
+
+        convertString2(n);
 
         sc.close();
 
