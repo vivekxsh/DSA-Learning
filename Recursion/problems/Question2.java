@@ -1,6 +1,7 @@
 package Recursion.problems;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Question2 {
 
@@ -83,6 +84,21 @@ public class Question2 {
             System.out.print(arr[i] + " ");
         }
 
+        System.out.println();
+
+    }
+
+    static void convertString3(int n) {
+        Stack<Integer> stack = new Stack<>();
+
+        while (n != 0) {
+            stack.push(n % 10);
+            n = n / 10;
+        }
+
+        while (!stack.isEmpty()) {
+            System.out.print(digits[stack.pop()] + " ");
+        }
     }
 
     public static void main(String[] args) {
@@ -95,7 +111,11 @@ public class Question2 {
 
         convertString1(n);
 
+        // by the help of StringBuilder and String array data structure
         convertString2(n);
+
+        // by the use of stack data structure
+        convertString3(n);
 
         sc.close();
 
