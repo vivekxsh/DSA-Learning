@@ -7,7 +7,7 @@
 ![merge sort](images/image2.png)
 ![merge sort](images/image3.png)
 
-**_TC = O(nlogn)_**
+**_TC = O(nlogn)_** ||
 **_SC = O(n)_**
 
 ```java
