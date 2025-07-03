@@ -108,6 +108,10 @@ public class mergeSort {
 **_[Average case] TC = O(nlogn)_** ||
 **_SC = O(1)_**
 
+![worst case](images/image5.png)
+**_[Worst case in the quick will occur when the pivot is always a largest element or the smallest element]_**
+|| **_TC = O(n^2)_**
+
 ```java
 package DivideAndConquer;
 
