@@ -3,6 +3,7 @@ package DivideAndConquer;
 import java.util.Scanner;
 
 // TC = O(nlogn)
+// SC = O(n)
 
 public class mergeSort {
 
