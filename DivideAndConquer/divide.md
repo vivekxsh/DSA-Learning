@@ -110,7 +110,7 @@ public class mergeSort {
 
 ![worst case](images/image5.png)
 **_[Worst case in the quick will occur when the pivot is always a largest element or the smallest element]_**
-|| **_TC = O(n^2)_**
+|| **_( TC = O(n^2) )_**
 
 ```java
 package DivideAndConquer;
