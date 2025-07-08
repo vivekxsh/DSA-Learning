@@ -1,10 +1,14 @@
 ### Time and Space complexity(TC)
 
+---
+
 ![TC & SC](images/image.png)
 
 ### Time Complexity(TC) :
 
 **_-> The amount of time taken by an algorithm/code based on input size is Time Complexity_**
+
+---
 
 ### Space Complexity(SC) :
 
@@ -15,6 +19,8 @@
 ![TC&SC](images/image1.png)
 
 ![TC&SC](images/image2.png)
+
+---
 
 **Big O notation(Upper bound)** is a mathematical concept used in computer science to describe the **performance or complexity** of an algorithm in terms of time or space as the input size grows.
 
@@ -61,8 +67,6 @@ For example:
 | O(n²)      | Quadratic time   | Bubble sort, nested loops                |
 | O(2ⁿ)      | Exponential time | Solving traveling salesman (brute force) |
 | O(n!)      | Factorial time   | Solving all permutations                 |
-
----
 
 ---
 
