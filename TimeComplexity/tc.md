@@ -13,3 +13,5 @@
 #### Time is directly proportional to number: $t \propto n$
 
 ![TC&SC](images/image1.png)
+
+![TC&SC](images/image2.png)
