@@ -140,3 +140,7 @@ for some positive constants c₁ and c₂, when _n_ is sufficiently large.
 | **Θ(f(n))** | Tight bound | Both worst & best |
 
 ---
+
+### 🔹 Common complexities:
+
+![COMMON](images/image4.png)
