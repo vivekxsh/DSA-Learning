@@ -78,3 +78,5 @@ For example:
 - It describes the **worst-case scenario** (usually).
 
 ---
+
+![TC&SC](images/image3.png)
