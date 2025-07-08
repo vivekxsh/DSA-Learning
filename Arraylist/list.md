@@ -43,3 +43,7 @@ When adding an element at the **end**, if the internal array has room, it's **O(
 
 - **Frequent inserts/deletes in the middle** → use `LinkedList` instead.
 - **Need for thread safety** → consider `Collections.synchronizedList()` or `CopyOnWriteArrayList`.
+
+---
+
+![operations](images/image2.png)
