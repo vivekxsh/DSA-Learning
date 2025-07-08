@@ -144,3 +144,7 @@ for some positive constants c₁ and c₂, when _n_ is sufficiently large.
 ### 🔹 Common complexities:
 
 ![COMMON](images/image4.png)
+
+### 🔹 Space complexity:
+
+![sc](images/image5.png)
