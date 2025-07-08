@@ -80,3 +80,63 @@ For example:
 ---
 
 ![TC&SC](images/image3.png)
+
+---
+
+# Big Omega (Ω) Notation (Lower bound)
+
+Big Omega (Ω) notation is used in algorithm analysis to describe the **best-case lower bound** of an algorithm's performance — that is, the **minimum amount of time (or space)** the algorithm will take for **any input of size _n_**.
+
+---
+
+### 🔹 What Big Omega Means:
+
+If an algorithm is Ω(f(n)), it means:
+
+> The algorithm takes **at least f(n)** time (or space) in the best case as _n_ grows.
+
+So, while **Big O (O(f(n)))** tells us how bad things can get,  
+**Big Omega (Ω(f(n)))** tells us how good things can get.
+
+---
+
+### 🔹 Comparison Table:
+
+| Notation    | Meaning     | Describes...      |
+| ----------- | ----------- | ----------------- |
+| **O(f(n))** | Upper bound | Worst-case time   |
+| **Ω(f(n))** | Lower bound | Best-case time    |
+| **Θ(f(n))** | Tight bound | Both worst & best |
+
+---
+
+# Big Theta (Θ) Notation
+
+Big Theta (Θ) notation describes the **tight bound** on an algorithm's running time — meaning it bounds the algorithm **both from above and below**. It gives a precise asymptotic behavior, showing that the algorithm takes **exactly f(n) time** (within constant factors) for large input size _n_.
+
+---
+
+### 🔹 What Big Theta Means:
+
+If an algorithm is Θ(f(n)), it means:
+
+> The algorithm's running time grows **asymptotically like f(n)** — neither faster nor slower.
+
+So, Θ(f(n)) implies:
+
+- The algorithm takes **at least c₁ \* f(n)** time (lower bound), and
+- At most **c₂ \* f(n)** time (upper bound),
+
+for some positive constants c₁ and c₂, when _n_ is sufficiently large.
+
+---
+
+### 🔹 Comparison Table:
+
+| Notation    | Meaning     | Describes...      |
+| ----------- | ----------- | ----------------- |
+| **O(f(n))** | Upper bound | Worst-case time   |
+| **Ω(f(n))** | Lower bound | Best-case time    |
+| **Θ(f(n))** | Tight bound | Both worst & best |
+
+---
