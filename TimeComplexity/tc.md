@@ -11,3 +11,5 @@
 **_-> The amount of space taken by an algorithm/code based on input is Space Complexity_**
 
 #### Time is directly proportional to number: $t \propto n$
+
+![TC&SC](images/image1.png)
