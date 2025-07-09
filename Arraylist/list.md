@@ -161,6 +161,12 @@ public class findMaximum {
 
 ---
 
+**_🔍 Output:_**
+The maximum number is: 9
+Maximum number: 9
+
+---
+
 **_-> Swap two numbers in arrylist_**
 
 ```java
@@ -192,3 +198,53 @@ public class swapNumber {
     }
 }
 ```
+
+---
+
+**_🔍 Output:_**
+2 3 9 5 6
+
+---
+
+**_-> Sorting on arraylist_**
+
+```java
+package Arraylist;
+
+import java.util.*;
+
+public class sorting {
+    public static void main(String[] args) {
+        // data = 2 5 9 3 6
+
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(2);
+        arr.add(5);
+        arr.add(9);
+        arr.add(3);
+        arr.add(6);
+
+        System.out.println(arr);
+
+        // sorting in ascending order
+        Collections.sort(arr);
+        System.out.println("Sorted in ascending order.");
+        System.out.println(arr);
+
+        // sorting in descending order
+        Collections.sort(arr, Collections.reverseOrder());
+        System.out.println("Sorted in descending order.");
+        System.out.println(arr);
+    }
+}
+```
+
+---
+
+**_🔍 Output:_**
+
+[2, 5, 9, 3, 6]
+Sorted in ascending order.
+[2, 3, 5, 6, 9]
+Sorted in descending order.
+[9, 6, 5, 3, 2]
