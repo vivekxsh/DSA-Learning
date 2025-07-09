@@ -248,3 +248,51 @@ Sorted in ascending order.
 [2, 3, 5, 6, 9]
 Sorted in descending order.
 [9, 6, 5, 3, 2]
+
+---
+
+**_-> 2D ArrayList (Multidimensional arraylist)_**
+![2d](images/image3.png)
+
+---
+
+```java
+package Arraylist;
+
+import java.util.ArrayList;
+
+public class twoDArrayList {
+    public static void main(String[] args) {
+
+        ArrayList<ArrayList<Integer>> mainList = new ArrayList<>();
+
+        ArrayList<Integer> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(2);
+
+        mainList.add(list1);
+
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(3);
+        list2.add(4);
+
+        mainList.add(list2);
+
+        // print 2d ArrayList
+
+        for (int i = 0; i < mainList.size(); i++) {
+            ArrayList<Integer> currList = mainList.get(i);
+
+            System.out.println(currList);
+        }
+
+    }
+}
+```
+
+---
+
+**_🔍 Output:_**
+
+[1, 2]
+[3, 4]
