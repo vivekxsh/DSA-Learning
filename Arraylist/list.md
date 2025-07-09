@@ -47,3 +47,27 @@ When adding an element at the **end**, if the internal array has room, it's **O(
 ---
 
 ![operations](images/image2.png)
+
+---
+
+### Size of an arrayList
+
+```java
+import java.util.*;
+public class Main {
+    Public static void main(String[] args) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(2);
+        System.out.println(arr.size());
+    }
+}
+```
+
+---
+
+**_🔍 Output:_**
+
+2
+
+---
