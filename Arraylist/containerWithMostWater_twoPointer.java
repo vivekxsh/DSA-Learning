@@ -5,18 +5,20 @@ import java.util.ArrayList;
 
 public class containerWithMostWater_twoPointer {
 
-    static int containerWithMostWater(ArrayList<Integer> container) {
+    static int containerWithMostWater(ArrayList<Integer> container) { // O(n)
 
         int mostWater = 0;
         int left = 0, right = container.size() - 1;
 
         while (left < right) {
 
+            // calculate most water
             int minHt = Math.min(container.get(left), container.get(right));
             int width = right - left;
 
             mostWater = Math.max(mostWater, (minHt * width));
 
+            // update pointers
             if (container.get(left) < container.get(right)) {
                 left++;
             } else {
