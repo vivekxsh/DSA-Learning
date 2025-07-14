@@ -57,3 +57,15 @@ Backtracking is essentially a **depth-first search (DFS)** of all possible confi
 ---
 
 ![backtrack](images/image.png)
+
+---
+
+### **Types of Backtrack**
+
+- **Decision**: Check whether the solution exists or not
+- **Optimization**: Choose best solutions among all the solutions
+- **Enumeration**: List all the possible solutions for the particular question
+
+---
+
+![types of backtrack](images/image1.png)
