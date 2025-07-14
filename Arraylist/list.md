@@ -297,10 +297,19 @@ public class twoDArrayList {
 [1, 2]
 [3, 4]
 
+---
+
 **_-> Find container with most Water (Brute force approach)_**
+
+---
+
 ![most water](images/image4.png)
 
-Time complexity : $$O(n^2)$$
+---
+
+## Time complexity : $$O(n^2)$$
+
+---
 
 ```java
 package Arraylist;
@@ -358,14 +367,22 @@ public class containerWithMostWater_bruteForce {
 }
 ```
 
+---
+
 **_🔍 Output:_**
 [The maximum water can be hold is: 49]
+
+---
 
 **_-> Find container with most Water optimal (two pointer approach)_**
 
 ![most water](images/image5.png)
 
+---
+
 Time complexity : $$O(n)$$
+
+---
 
 ```java
 package Arraylist;
@@ -426,12 +443,21 @@ public class containerWithMostWater_twoPointer {
 }
 ```
 
+---
+
 **_🔍 Output:_**
 [Container with most water: 49]
 
+---
+
 **_->Pair Sum (Brute force)_**
 ![pair sum](images/image6.png)
+
+---
+
 Time Complexity : $$O(n^2)$$
+
+---
 
 ```java
 package Arraylist;
@@ -481,12 +507,21 @@ public class pairSum1_bruteForce {
 }
 ```
 
+---
+
 **_🔍 Output:_**
 "Pairs are -> 0 3"
 
+---
+
 **_->Pair Sum(2 pointer)_**
 ![pair sum](images/image7.png)
+
+---
+
 Time Complexity : $$O(n)$$
+
+---
 
 ```java
 package Arraylist;
@@ -543,3 +578,5 @@ public class pairSum1_2pointer {
     }
 }
 ```
+
+---
