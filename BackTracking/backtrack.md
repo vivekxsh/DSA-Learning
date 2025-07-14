@@ -178,3 +178,11 @@ c
 null
 
 ---
+
+### Call Stack
+
+---
+
+![call stack](images/image4.png)
+
+---
