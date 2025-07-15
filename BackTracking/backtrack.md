@@ -302,3 +302,22 @@ public class nQueens {
     }
 }
 ```
+
+---
+
+**_🔍 Output:_**
+
+------------ chess board ----------
+Q .
+Q .
+------------ chess board ----------
+Q .
+. Q
+------------ chess board ----------
+. Q
+Q .
+------------ chess board ----------
+. Q
+. Q
+
+---
