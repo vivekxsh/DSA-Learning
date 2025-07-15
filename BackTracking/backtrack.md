@@ -186,3 +186,58 @@ null
 ![call stack](images/image4.png)
 
 ---
+
+**_-> Find permutation_**
+![permutation](images/image5.png)
+
+---
+
+![permutation](images/image6.png)
+
+---
+
+![permutation](images/image7.png)
+
+---
+
+```java
+package BackTracking;
+
+public class findPermutation {
+
+    public static void permutation(String str, String ans) {
+        // base case
+        if (str.length() == 0) {
+            System.out.println(ans);
+            return;
+        }
+
+        // recursion
+        // TIME COMPLEXITY = O(n * n!)
+        for (int i = 0; i < str.length(); i++) {
+            char curr = str.charAt(i);
+
+            String newStr = str.substring(0, i) + str.substring(i + 1);
+
+            permutation(newStr, ans + curr);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        String str = "abc";
+        permutation(str, "");
+
+    }
+}
+```
+
+---
+
+**_🔍 Output:_**
+abc
+acb
+bac
+bca
+cab
+cba
