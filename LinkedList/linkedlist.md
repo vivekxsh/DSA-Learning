@@ -99,3 +99,7 @@ Each node stores references to:
 | Memory overhead      | Higher (extra pointers) | Lower                 |
 
 ---
+
+### 🔁 Add to the Linkedlist:
+
+![add element](images/image1.png)
