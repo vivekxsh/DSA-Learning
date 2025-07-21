@@ -137,6 +137,28 @@ public class linked_list {
         return -1;
     }
 
+    // remove last element from a linkedlist
+    public void removeLast() {
+
+        if (head == null) {
+            System.out.println("Element can not be removed.");
+            return;
+        }
+
+        else if (head.next == null) {
+            head = tail = null;
+            return;
+        }
+
+        Node temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = null;
+
+    }
+
     public static void main(String[] args) {
 
         linked_list ll = new linked_list();
@@ -158,6 +180,10 @@ public class linked_list {
         // ll.printList();
 
         System.out.println("The key found at index: " + ll.iterativeSearch(6));
+
+        ll.removeLast();
+
+        ll.printList();
 
     }
 }
