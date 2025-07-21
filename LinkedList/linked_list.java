@@ -137,6 +137,28 @@ public class linked_list {
         return -1;
     }
 
+    // search key recursively
+
+    public int helper(Node head, int key) {
+        if (head == null) {
+            return -1;
+        }
+        if (head.data == key) {
+            return 0;
+        }
+
+        int idx = helper(head.next, key);
+        if (idx == -1) {
+            return -1;
+        }
+
+        return idx + 1;
+    }
+
+    public int recSearch(int key) {
+        return helper(head, key);
+    }
+
     // remove last element from a linkedlist
     public int removeLast() {
 
@@ -185,9 +207,11 @@ public class linked_list {
 
         System.out.println("The key found at index: " + ll.iterativeSearch(6));
 
-        System.out.println("The element that has got deleted: " + ll.removeLast());
+        // System.out.println("The element that has got deleted: " + ll.removeLast());
 
         ll.printList();
+
+        System.out.println(ll.iterativeSearch(4));
 
     }
 }
