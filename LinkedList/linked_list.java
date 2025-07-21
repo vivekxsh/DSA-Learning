@@ -1,8 +1,5 @@
 package LinkedList;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class linked_list {
     public static class Node {
 
