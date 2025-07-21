@@ -34,12 +34,34 @@ public class linked_list {
 
     }
 
+    public void addLast(int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
+
+        // Node temp = head;
+        // while (temp.next != null) {
+        // temp = temp.next;
+        // }
+        // temp.next = newNode;
+        // newNode.next = null;
+
+        tail.next = newNode;
+        tail = newNode;
+    }
+
     public static void main(String[] args) {
 
         linked_list ll = new linked_list();
 
         ll.addFirst(1);
         ll.addFirst(2);
+
+        ll.addLast(3);
+        ll.addLast(4);
 
     }
 }
