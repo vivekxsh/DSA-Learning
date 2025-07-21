@@ -1,5 +1,8 @@
 package LinkedList;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class linked_list {
     public static class Node {
 
@@ -185,12 +188,30 @@ public class linked_list {
 
     }
 
+    // reverse a linkedlist
+    public void reverseList() {
+
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        head = prev;
+
+    }
+
     public static void main(String[] args) {
 
         linked_list ll = new linked_list();
 
-        ll.addFirst(1);
         ll.addFirst(2);
+        ll.addFirst(1);
 
         ll.addLast(4);
         ll.addLast(5);
@@ -212,6 +233,10 @@ public class linked_list {
         ll.printList();
 
         System.out.println(ll.iterativeSearch(4));
+
+        ll.reverseList();
+
+        ll.printList();
 
     }
 }
