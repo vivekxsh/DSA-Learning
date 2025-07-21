@@ -103,3 +103,100 @@ Each node stores references to:
 ### 🔁 Add to the Linkedlist:
 
 ![add element](images/image1.png)
+
+---
+
+### 🔁 Add First to the Linkedlist:
+
+```java
+public void addFirst(int data) { // constant time O(1)
+        // Step 1 -> Create new node
+    Node newNode = new Node(data);
+
+        // if head is null
+    if (head == null) {
+        head = tail = newNode;
+        return;
+    }
+
+        // step 2 -> assign head to newNode
+    newNode.next = head;
+
+        // step 3 -> update head
+    head = newNode;
+
+}
+```
+
+---
+
+### 🔁 Add last to the Linkedlist:
+
+```java
+public void addLast(int data) {
+    Node newNode = new Node(data);
+
+    if (head == null) {
+        head = tail = newNode;
+        return;
+    }
+
+    Node temp = head;
+    while (temp.next != null) {
+        temp = temp.next;
+    }
+    temp.next = newNode;
+    newNode.next = null;
+
+    // tail.next = newNode;
+    // tail = newNode;
+}
+```
+
+---
+
+### 🔁 Print the Linkedlist:
+
+```java
+public void printList() {
+
+    if (head == null) {
+        System.out.println("Linkedlist is empty.");
+    }
+
+    Node temp = head;
+
+    while (temp != null) {
+        System.out.print(temp.data + "->");
+        temp = temp.next;
+    }
+    System.out.println("null");
+}
+```
+
+---
+
+### 🔁 Add middle to the Linkedlist:
+
+```java
+public void addMiddle(int data, int idx) {
+    Node newNode = new Node(data);
+    if (head == null) {
+        head = tail = newNode;
+        return;
+    }
+
+    Node temp = head;
+
+    int i = 0;
+    while (i < idx - 1) {
+        temp = temp.next;
+        i++;
+    }
+
+    newNode.next = temp.next;
+    temp.next = newNode;
+}
+```
+
+---
