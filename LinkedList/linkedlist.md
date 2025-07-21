@@ -273,3 +273,35 @@ public int iterativeSearch(int key) {
 ```
 
 ---
+
+### 🔁 Remove last element in Linkedlist:
+
+```java
+// remove last element from a linkedlist
+public int removeLast() {
+
+        if (head == null) {
+            System.out.println("Element can not be removed.");
+            return Integer.MIN_VALUE;
+        }
+
+        else if (head.next == null) {
+            int val = head.data;
+            head = tail = null;
+            return val;
+        }
+
+        Node temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+
+        int val = temp.next.data;
+        temp.next = null;
+
+        return val;
+
+}
+```
+
+---
