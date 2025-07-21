@@ -53,6 +53,25 @@ public class linked_list {
         // tail = newNode;
     }
 
+    public void addMiddle(int data, int idx) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
+
+        Node temp = head;
+
+        int i = 0;
+        while (i < idx - 1) {
+            temp = temp.next;
+            i++;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
     public void printList() {
 
         if (head == null) {
@@ -75,9 +94,12 @@ public class linked_list {
         ll.addFirst(1);
         ll.addFirst(2);
 
-        ll.addLast(3);
+        ll.addLast(4);
         ll.addLast(4);
 
+        ll.printList();
+
+        ll.addMiddle(3, 2);
         ll.printList();
 
     }
