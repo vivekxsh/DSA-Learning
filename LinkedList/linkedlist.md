@@ -222,3 +222,19 @@ public void getSize() {
 ```
 
 ---
+
+### 🔁 Remove operation on Linkedlist:
+
+---
+
+### 🔁 Remove first operation on Linkedlist:
+
+```java
+public int removeFirst() {
+    int val = head.data;
+    head = head.next;
+    return val;
+}
+```
+
+---
