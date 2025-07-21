@@ -333,3 +333,31 @@ public int recSearch(int key) {
 ```
 
 ---
+
+### 🔁 Reverse a Linkedlist:
+
+![reverse](images/image2.png)
+
+---
+
+```java
+// reverse a linkedlist
+public void reverseList() {
+
+    Node prev = null;
+    Node curr = tail = head;
+    Node next;
+
+    while (curr != null) {
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    head = prev;
+
+}
+```
+
+---
