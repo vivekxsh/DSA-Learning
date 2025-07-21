@@ -87,6 +87,22 @@ public class linked_list {
         System.out.println("null");
     }
 
+    public void getSize() {
+        int size = 0;
+        if (head == null) {
+            System.out.println("Size is: 0");
+            return;
+        }
+
+        Node temp = head;
+        while (temp != null) {
+            size++;
+            temp = temp.next;
+        }
+
+        System.out.println("Size is: " + size);
+    }
+
     public static void main(String[] args) {
 
         linked_list ll = new linked_list();
@@ -101,6 +117,8 @@ public class linked_list {
 
         ll.addMiddle(3, 2);
         ll.printList();
+
+        ll.getSize();
 
     }
 }
