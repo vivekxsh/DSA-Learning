@@ -72,6 +72,12 @@ public class linked_list {
         temp.next = newNode;
     }
 
+    public int removeFirst() {
+        int val = head.data;
+        head = head.next;
+        return val;
+    }
+
     public void printList() {
 
         if (head == null) {
@@ -119,6 +125,9 @@ public class linked_list {
         ll.printList();
 
         ll.getSize();
+
+        ll.removeFirst();
+        ll.printList();
 
     }
 }
