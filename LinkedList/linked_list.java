@@ -203,6 +203,32 @@ public class linked_list {
 
     }
 
+    public void removeNthFromLast(int n) {
+        int sz = 0;
+        Node temp = head;
+        while (temp != null) {
+            sz++;
+            temp = temp.next;
+        }
+
+        if (n == sz) {
+            head = head.next;
+            return;
+        }
+
+        // if not null
+        int i = 1;
+        int ifromstart = sz - n;
+        Node prev = head;
+        while (i < ifromstart) {
+            prev = prev.next;
+            i++;
+        }
+
+        prev.next = prev.next.next;
+        return;
+    }
+
     public static void main(String[] args) {
 
         linked_list ll = new linked_list();
@@ -233,6 +259,9 @@ public class linked_list {
 
         ll.reverseList();
 
+        ll.printList();
+
+        ll.removeNthFromLast(3);
         ll.printList();
 
     }
