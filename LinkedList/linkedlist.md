@@ -231,9 +231,18 @@ public void getSize() {
 
 ```java
 public int removeFirst() {
-    int val = head.data;
-    head = head.next;
-    return val;
+
+        if (head == null) {
+            System.out.println("Linkedlist is empty.");
+            return Integer.MIN_VALUE;
+        } else if (head.next == null) {
+            int val = head.data;
+            head = tail = null;
+            return val;
+        }
+        int val = head.data;
+        head = head.next;
+        return val;
 }
 ```
 
