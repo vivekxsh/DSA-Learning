@@ -138,16 +138,17 @@ public class linked_list {
     }
 
     // remove last element from a linkedlist
-    public void removeLast() {
+    public int removeLast() {
 
         if (head == null) {
             System.out.println("Element can not be removed.");
-            return;
+            return Integer.MIN_VALUE;
         }
 
         else if (head.next == null) {
+            int val = head.data;
             head = tail = null;
-            return;
+            return val;
         }
 
         Node temp = head;
@@ -155,7 +156,10 @@ public class linked_list {
             temp = temp.next;
         }
 
+        int val = temp.next.data;
         temp.next = null;
+
+        return val;
 
     }
 
@@ -181,7 +185,7 @@ public class linked_list {
 
         System.out.println("The key found at index: " + ll.iterativeSearch(6));
 
-        ll.removeLast();
+        System.out.println("The element that has got deleted: " + ll.removeLast());
 
         ll.printList();
 
