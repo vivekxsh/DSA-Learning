@@ -42,15 +42,30 @@ public class linked_list {
             return;
         }
 
-        // Node temp = head;
-        // while (temp.next != null) {
-        // temp = temp.next;
-        // }
-        // temp.next = newNode;
-        // newNode.next = null;
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        newNode.next = null;
 
-        tail.next = newNode;
-        tail = newNode;
+        // tail.next = newNode;
+        // tail = newNode;
+    }
+
+    public void printList() {
+
+        if (head == null) {
+            System.out.println("Linkedlist is empty.");
+        }
+
+        Node temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.data + ", ");
+            temp = temp.next;
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -62,6 +77,8 @@ public class linked_list {
 
         ll.addLast(3);
         ll.addLast(4);
+
+        ll.printList();
 
     }
 }
