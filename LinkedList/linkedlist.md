@@ -200,3 +200,25 @@ public void addMiddle(int data, int idx) {
 ```
 
 ---
+
+### 🔁 Add middle to the Linkedlist:
+
+```java
+public void getSize() {
+        int size = 0;
+        if (head == null) {
+            System.out.println("Size is: 0");
+            return;
+        }
+
+        Node temp = head;
+        while (temp != null) {
+            size++;
+            temp = temp.next;
+        }
+
+        System.out.println("Size is: " + size);
+}
+```
+
+---
