@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.ArrayList;
+
 public class linked_list {
     public static class Node {
 
@@ -203,6 +205,7 @@ public class linked_list {
 
     }
 
+    // remove nth node from last
     public void removeNthFromLast(int n) {
         int sz = 0;
         Node temp = head;
@@ -227,6 +230,34 @@ public class linked_list {
 
         prev.next = prev.next.next;
         return;
+    }
+
+    // check if linkedlist is palindrome or not
+    public ArrayList<Integer> storeElement() {
+        ArrayList<Integer> arr = new ArrayList<>();
+
+        Node temp = head;
+        while (temp != null) {
+            arr.add(temp.data);
+            temp = temp.next;
+        }
+
+        return arr;
+    }
+
+    // palindrome function
+    public boolean palindrome(ArrayList<Integer> arr) {
+
+        int left = 0;
+        int right = arr.size() - 1;
+
+        while (left < right) {
+            if (arr.get(left) != arr.get(right)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
@@ -261,8 +292,11 @@ public class linked_list {
 
         ll.printList();
 
-        ll.removeNthFromLast(3);
-        ll.printList();
+        // ll.removeNthFromLast(3);
+        // ll.printList();
+
+        ArrayList<Integer> arr = ll.storeElement();
+        System.out.println("Is linkedlist palindrome or not: " + ll.palindrome(arr));
 
     }
 }
