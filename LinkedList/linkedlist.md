@@ -247,3 +247,29 @@ public int removeFirst() {
 ```
 
 ---
+
+### 🔁 Search key iteratively on Linkedlist:
+
+```java
+// search key iteratively
+public int iterativeSearch(int key) {
+
+    if (head == null) {
+        return -1;
+    }
+    int idx = 0;
+    Node temp = head;
+    while (temp != null) {
+        if (temp.data == key) {
+            return idx;
+        }
+        idx++;
+        temp = temp.next;
+    }
+
+    return -1;
+}
+
+```
+
+---
