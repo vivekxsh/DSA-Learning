@@ -14,8 +14,16 @@ public class linkedlist_Collections {
         linkedlist.add(3);
         linkedlist.add(4);
         linkedlist.add(5);
+        linkedlist.addFirst(0);
 
         // printing
+        System.out.println(linkedlist);
+
+        // reomve
+
+        linkedlist.removeFirst();
+        linkedlist.removeLast();
+
         System.out.println(linkedlist);
 
     }
