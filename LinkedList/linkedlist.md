@@ -545,3 +545,49 @@ public class Example {
 ---
 
 ![collections](images/image5.png)
+
+---
+
+### 🔁 Linkedlist by the use of Collection framework:
+
+```java
+package LinkedList;
+
+import java.util.LinkedList;
+
+public class linkedlist_Collections {
+    public static void main(String[] args) {
+
+        // creation
+        LinkedList<Integer> linkedlist = new LinkedList<>();
+
+        // adding
+        linkedlist.add(1);
+        linkedlist.add(2);
+        linkedlist.add(3);
+        linkedlist.add(4);
+        linkedlist.add(5);
+        linkedlist.addFirst(0);
+
+        // printing
+        System.out.println(linkedlist);
+
+        // reomve
+
+        linkedlist.removeFirst();
+        linkedlist.removeLast();
+
+        System.out.println(linkedlist);
+
+    }
+}
+```
+
+---
+
+### 📌 Output:
+
+[0, 1, 2, 3, 4, 5]
+[1, 2, 3, 4]
+
+---
