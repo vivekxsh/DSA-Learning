@@ -423,3 +423,54 @@ public boolean isCycle() {
 ```
 
 ---
+
+### 🔁 Detecting a cycle in Linkedlist and removing it:
+
+![remove cycle](images/image4.png)
+
+---
+
+```java
+// remove cycle in linkedlist
+public void removeCycle() {
+
+        // find cycle
+
+        Node slow = head;
+        Node fast = head;
+
+        boolean cycle = true;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                cycle = true;
+                break;
+            }
+        }
+
+        if (cycle == false) {
+            return;
+        }
+
+        // find point to remove
+
+        slow = head;
+        Node prev = null;
+
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        // remove cycle
+
+        prev.next = null;
+}
+
+```
+
+---
