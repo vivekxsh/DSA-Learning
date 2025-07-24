@@ -393,3 +393,30 @@ public void removeNthFromLast(int n) {
 ```
 
 ---
+
+### 🔁 Detecting a cycle in Linkedlist:
+
+![detect cycle](images/image3.png)
+
+---
+
+```java
+// detecting a cycle in linkedlist
+public boolean isCycle() {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+}
+
+---
+```
