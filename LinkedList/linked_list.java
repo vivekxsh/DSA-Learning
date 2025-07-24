@@ -277,6 +277,46 @@ public class linked_list {
         return false;
     }
 
+    // remove cycle in linkedlist
+    public void removeCycle() {
+
+        // find cycle
+
+        Node slow = head;
+        Node fast = head;
+
+        boolean cycle = true;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                cycle = true;
+                break;
+            }
+        }
+
+        if (cycle == false) {
+            return;
+        }
+
+        // find point to remove
+
+        slow = head;
+        Node prev = null;
+
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        // remove cycle
+
+        prev.next = null;
+    }
+
     public static void main(String[] args) {
 
         linked_list ll = new linked_list();
