@@ -400,6 +400,8 @@ public void removeNthFromLast(int n) {
 
 ---
 
+**_Floyd's Cycle Detection Algorithm || (Tortoise and Hare)_**
+
 ```java
 // detecting a cycle in linkedlist
 public boolean isCycle() {
