@@ -474,3 +474,74 @@ public void removeCycle() {
 ```
 
 ---
+
+The **Java Collection Framework (JCF)** is a unified architecture in Java for representing and manipulating **groups of objects**, known as **collections**. It provides **interfaces**, **implementations (classes)**, and **algorithms** to manage collections efficiently.
+
+---
+
+### ✅ **Key Components of Java Collection Framework**
+
+#### 1. **Interfaces** (Abstract Data Types)
+
+These define various types of collections:
+
+- `Collection` – root interface
+  - `List` – ordered collection (e.g., `ArrayList`, `LinkedList`)
+  - `Set` – no duplicate elements (e.g., `HashSet`, `TreeSet`)
+  - `Queue` – holds elements prior to processing (e.g., `PriorityQueue`)
+  - `Map` – key-value pairs (not a true child of `Collection` but part of JCF)
+
+#### 2. **Implementations** (Concrete Classes)
+
+These are actual data structures:
+
+- `ArrayList`, `LinkedList` – implementations of `List`
+- `HashSet`, `TreeSet`, `LinkedHashSet` – implementations of `Set`
+- `HashMap`, `TreeMap`, `LinkedHashMap` – implementations of `Map`
+- `PriorityQueue`, `ArrayDeque` – implementations of `Queue`
+
+#### 3. **Algorithms**
+
+Utility methods in `Collections` class:
+
+- Sorting: `Collections.sort()`
+- Searching: `Collections.binarySearch()`
+- Shuffling: `Collections.shuffle()`
+- Thread safety: `Collections.synchronizedList()`, etc.
+
+---
+
+### 🔄 Why Use Java Collection Framework?
+
+- **Reusability**: Common data structures provided out-of-the-box
+- **Interoperability**: Interfaces make it easy to swap implementations
+- **Efficiency**: Optimized and well-tested implementations
+- **Type Safety**: Use of **generics** (`List<String>`, `Map<Integer, String>`) helps avoid type errors
+- **Flexibility**: Supports custom objects and algorithms
+
+---
+
+### 📌 Example:
+
+```java
+import java.util.*;
+
+public class Example {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");
+
+        Collections.sort(names);
+
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+```
+
+---
+
+![collections](images/image5.png)
