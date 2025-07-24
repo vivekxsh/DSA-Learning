@@ -260,6 +260,23 @@ public class linked_list {
         return true;
     }
 
+    // detecting a cycle in linkedlist
+    public boolean isCycle() {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
 
         linked_list ll = new linked_list();
