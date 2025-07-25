@@ -73,6 +73,27 @@ public class DoubleLL {
         System.out.println("null");
     }
 
+    // reverse a doubly linkedlist
+    public void reverse() {
+        Node curr = head;
+        Node prev = null;
+        Node next;
+
+        while (curr != null) {
+
+            next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+
+            prev = curr;
+            curr = next;
+
+        }
+
+        head = prev;
+
+    }
+
     public static void main(String[] args) {
 
         DoubleLL DLL = new DoubleLL();
@@ -86,9 +107,13 @@ public class DoubleLL {
 
         System.out.println(size);
 
-        System.out.println(DLL.removeFirst());
+        // System.out.println(DLL.removeFirst());
+        // DLL.printLL();
+        // System.out.println(size);
+
         DLL.printLL();
-        System.out.println(size);
+        DLL.reverse();
+        DLL.printLL();
 
     }
 }
