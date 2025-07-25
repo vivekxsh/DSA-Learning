@@ -746,3 +746,34 @@ public class Main {
 - More complex insertion/deletion logic than singly linked list.
 
 ---
+
+### 🛠 Reverse a DLL:
+
+![reverse](images/image6.png)
+
+---
+
+```java
+// reverse a doubly linkedlist
+public void reverse() {
+        Node curr = head;
+        Node prev = null;
+        Node next;
+
+        while (curr != null) {
+
+            next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+
+            prev = curr;
+            curr = next;
+
+        }
+
+        head = prev;
+
+}
+```
+
+---
