@@ -591,3 +591,158 @@ public class linkedlist_Collections {
 [1, 2, 3, 4]
 
 ---
+
+---
+
+### 📘 What is a Doubly Linked List (DLL) in Java?
+
+A **Doubly Linked List** is a type of linked list where each node contains:
+
+1. A **data** field.
+2. A **reference to the next node**.
+3. A **reference to the previous node**.
+
+This makes it **bidirectional**, unlike a singly linked list which only goes forward.
+
+---
+
+### 📦 Structure of a Doubly Linked List Node:
+
+```java
+class Node {
+    int data;
+    Node prev;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.prev = null;
+        this.next = null;
+    }
+}
+```
+
+---
+
+### 🛠 Basic Operations of a DLL:
+
+Here’s a simple Java implementation:
+
+```java
+public class DoublyLinkedList {
+    Node head;
+
+    // Insert at the front
+    public void insertAtFront(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        if (head != null) {
+            head.prev = newNode;
+        }
+        head = newNode;
+    }
+
+    // Insert at the end
+    public void insertAtEnd(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = newNode;
+        newNode.prev = temp;
+    }
+
+    // Delete a node
+    public void deleteNode(int key) {
+        Node temp = head;
+
+        // Find the node to delete
+        while (temp != null && temp.data != key) {
+            temp = temp.next;
+        }
+
+        if (temp == null) return; // Not found
+
+        if (temp.prev != null) temp.prev.next = temp.next;
+        else head = temp.next;
+
+        if (temp.next != null) temp.next.prev = temp.prev;
+    }
+
+    // Display forward
+    public void displayForward() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
+    // Display backward
+    public void displayBackward() {
+        Node temp = head;
+        if (temp == null) return;
+
+        // Go to the end
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        // Print in reverse
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.prev;
+        }
+        System.out.println();
+    }
+}
+```
+
+---
+
+### 📌 Example Usage:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        DoublyLinkedList dll = new DoublyLinkedList();
+
+        dll.insertAtEnd(10);
+        dll.insertAtEnd(20);
+        dll.insertAtFront(5);
+        dll.insertAtEnd(30);
+
+        System.out.print("Forward: ");
+        dll.displayForward(); // 5 10 20 30
+
+        System.out.print("Backward: ");
+        dll.displayBackward(); // 30 20 10 5
+
+        dll.deleteNode(20);
+        System.out.print("After deletion: ");
+        dll.displayForward(); // 5 10 30
+    }
+}
+```
+
+---
+
+### ✅ Advantages of Doubly Linked List:
+
+- Easy to traverse both forward and backward.
+- Easier deletion of nodes compared to singly linked lists.
+
+### ❌ Disadvantages:
+
+- More memory (stores an extra `prev` pointer).
+- More complex insertion/deletion logic than singly linked list.
+
+---
