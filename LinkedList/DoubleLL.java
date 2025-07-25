@@ -27,12 +27,14 @@ public class DoubleLL {
 
         if (head == null) {
             head = tail = newNode;
+            size++;
             return;
         }
 
         newNode.next = head;
         head.prev = newNode;
         head = newNode;
+        size++;
     }
 
     // remove
@@ -43,7 +45,7 @@ public class DoubleLL {
 
         while (temp != null) {
 
-            System.out.print(temp.data + " -> ");
+            System.out.print(temp.data + " <-> ");
             temp = temp.next;
         }
         System.out.println("null");
@@ -59,6 +61,8 @@ public class DoubleLL {
         DLL.addFirst(1);
 
         DLL.printLL();
+
+        System.out.println(DLL.size);
 
     }
 }
