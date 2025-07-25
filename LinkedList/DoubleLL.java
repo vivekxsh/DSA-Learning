@@ -39,6 +39,18 @@ public class DoubleLL {
 
     // remove
 
+    public void removeFirst() {
+
+        if (head == null) {
+            System.out.println("Double LL is Empty.");
+            return;
+        }
+
+        head = head.next;
+        head.prev = null;
+        size--;
+    }
+
     // print DLL
     public void printLL() {
         Node temp = head;
@@ -62,7 +74,11 @@ public class DoubleLL {
 
         DLL.printLL();
 
-        System.out.println(DLL.size);
+        System.out.println(size);
+
+        DLL.removeFirst();
+        DLL.printLL();
+        System.out.println(size);
 
     }
 }
