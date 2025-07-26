@@ -31,6 +31,19 @@ class Animal {
     }
 }
 
+class BankAccount {
+    public String username;
+    private String password;
+
+    public void setPassword(String newPass) {
+        this.password = newPass;
+    }
+
+    public void printPassword() {
+        System.out.println(password);
+    }
+}
+
 public class oop {
 
     public static void main(String[] args) {
@@ -42,6 +55,12 @@ public class oop {
 
         System.out.println(pen.color);
         System.out.println(pen.tip);
+
+        BankAccount bank = new BankAccount();
+        bank.username = "viveksharma";
+        bank.setPassword("abcd");
+        bank.printPassword();
+
     }
 
 }
