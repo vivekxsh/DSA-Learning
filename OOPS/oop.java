@@ -4,11 +4,11 @@ class Pen {
     String color;
     int tip;
 
-    public void setColor(String newColor) {
+    void setColor(String newColor) {
         this.color = newColor;
     }
 
-    public void printColor() {
+    void printColor() {
         System.out.println("Color is: " + color);
     }
 
@@ -16,6 +16,19 @@ class Pen {
         this.tip = newTip;
     }
 
+}
+
+class Animal {
+    String name;
+    int legs;
+
+    void setName(String newName) {
+        this.name = newName;
+    }
+
+    void setLegs(int newLegs) {
+        this.legs = newLegs;
+    }
 }
 
 public class oop {
