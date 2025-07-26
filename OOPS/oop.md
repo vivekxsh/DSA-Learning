@@ -101,6 +101,8 @@ Access modifiers in Java control the **visibility** and **accessibility** of cla
 
 ---
 
+![modifiers](images/image.png)
+
 ### Types of Access Modifiers in Java
 
 | Modifier                  | Class | Package | Subclass (same package) | Subclass (different package) | World (everywhere) |
