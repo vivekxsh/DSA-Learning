@@ -94,3 +94,61 @@ public class Main {
 ```
 
 ---
+
+### What are Access Modifiers?
+
+Access modifiers in Java control the **visibility** and **accessibility** of classes, methods, and variables. They define **who can access** these members.
+
+---
+
+### Types of Access Modifiers in Java
+
+| Modifier                  | Class | Package | Subclass (same package) | Subclass (different package) | World (everywhere) |
+| ------------------------- | ----- | ------- | ----------------------- | ---------------------------- | ------------------ |
+| **public**                | Yes   | Yes     | Yes                     | Yes                          | Yes                |
+| **protected**             | Yes   | Yes     | Yes                     | Yes                          | No                 |
+| **default** (no modifier) | Yes   | Yes     | Yes                     | No                           | No                 |
+| **private**               | Yes   | No      | No                      | No                           | No                 |
+
+---
+
+### Detailed Explanation
+
+1. **public**
+
+   - The member is accessible **from anywhere** in your program.
+   - Used when you want to make your class, method, or variable globally accessible.
+
+2. **private**
+
+   - The member is accessible **only within the class** where it is declared.
+   - Most restrictive access level, mainly used for encapsulation.
+
+3. **protected**
+
+   - The member is accessible within the **same package** and also by **subclasses** (even if they are in different packages).
+   - Useful for inheritance where subclasses need access to superclass members.
+
+4. **default (package-private)**
+   - No keyword (just omit any modifier).
+   - The member is accessible only **within the same package**.
+   - Not accessible from subclasses or classes outside the package.
+
+---
+
+```java
+class BankAccount {
+    public String username;
+    private String password;
+
+    public void setPassword(String newPass) {
+        this.password = newPass;
+    }
+
+    public void printPassword() {
+        System.out.println(password);
+    }
+}
+```
+
+---
