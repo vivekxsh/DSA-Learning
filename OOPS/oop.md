@@ -233,6 +233,10 @@ class Pen2 {
 
 ## 🏛️ 1. **Encapsulation**
 
+![encapsulation](images/image2.png)
+
+---
+
 > **Definition:** Bundling data (variables) and methods (functions) that operate on the data into a single unit (class), and restricting direct access to some of the object's components.
 
 - Achieved using **private fields** and **public getters/setters**.
