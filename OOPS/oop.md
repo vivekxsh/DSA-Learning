@@ -346,3 +346,124 @@ class Car extends Vehicle {
 | Abstraction   | Hide implementation | Simplicity & Focus on behavior |
 
 ---
+
+### 🏗️ Constructor in OOP (Java)
+
+![constructor](images/image3.png)
+
+---
+
+A **constructor** in Java is a **special method** used to **initialize objects** of a class. It is called **automatically** when a new object is created using the `new` keyword.
+
+---
+
+## 🔑 Key Features of Constructors:
+
+- Has the **same name** as the class.
+- **No return type**, not even `void`.
+- Can be **overloaded** (i.e., you can have multiple constructors with different parameters).
+- Called **automatically** when the object is created.
+
+---
+
+## 🧱 Types of Constructors in Java
+
+### 1. **Default Constructor**
+
+- Provided by Java if no constructor is defined.
+- Takes no arguments.
+
+```java
+class Car {
+    Car() {
+        System.out.println("Car object created");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();  // Output: Car object created
+    }
+}
+```
+
+---
+
+### 2. **Parameterized Constructor**
+
+- Takes arguments to initialize the object with specific values.
+
+```java
+class Car {
+    String model;
+
+    Car(String m) {
+        model = m;
+    }
+
+    void show() {
+        System.out.println("Model: " + model);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car("Tesla");
+        myCar.show();  // Output: Model: Tesla
+    }
+}
+```
+
+---
+
+### 3. **Copy Constructor** _(Manually defined in Java)_
+
+- Used to create a copy of an existing object.
+
+```java
+class Car {
+    String model;
+
+    Car(String m) {
+        model = m;
+    }
+
+    // Copy constructor
+    Car(Car c) {
+        model = c.model;
+    }
+
+    void show() {
+        System.out.println("Model: " + model);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car("BMW");
+        Car car2 = new Car(car1);  // Copy of car1
+        car2.show();  // Output: Model: BMW
+    }
+}
+```
+
+---
+
+## 🧠 Why Use Constructors?
+
+- To ensure every object is initialized properly.
+- Improves **readability** and **maintainability**.
+- Supports **constructor overloading** for flexible initialization.
+
+---
+
+## 🔄 Constructor vs Method
+
+| Feature     | Constructor       | Method                 |
+| ----------- | ----------------- | ---------------------- |
+| Name        | Same as class     | Any valid name         |
+| Return Type | No return type    | Must have return type  |
+| Called When | Object is created | Called explicitly      |
+| Purpose     | Initialize object | Define object behavior |
+
+---
