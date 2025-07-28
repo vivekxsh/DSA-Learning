@@ -467,3 +467,47 @@ public class Main {
 | Purpose     | Initialize object | Define object behavior |
 
 ---
+
+### 🔁 Shallow Copy vs Deep Copy in Java
+
+![copy type](images/image4.png)
+
+---
+
+In Java, **copying an object** can be done in two main ways: **shallow copy** and **deep copy**.
+
+These refer to how the copy handles **object references** inside the original object.
+
+---
+
+## 🌊 Shallow Copy
+
+### ✅ Definition:
+
+A **shallow copy** copies the object and **only references** to other objects. The nested objects are **not copied**, just their **references**.
+
+> Both original and copy share the same sub-objects.
+
+---
+
+## 🧱 Deep Copy
+
+### ✅ Definition:
+
+A **deep copy** creates a **fully independent copy** of the object, including its referenced objects.
+
+> Original and copy do **not** share references.
+
+---
+
+## 🧠 Summary Table
+
+| Feature           | Shallow Copy                         | Deep Copy                              |
+| ----------------- | ------------------------------------ | -------------------------------------- |
+| Copies Object     | ✅ Yes                               | ✅ Yes                                 |
+| Copies References | ✅ (shared)                          | ❌ (creates new copies)                |
+| Memory Usage      | Low                                  | Higher (due to duplicated sub-objects) |
+| Independence      | ❌ Changes affect original copy      | ✅ Fully independent                   |
+| Complexity        | Simple (use `clone()` or assignment) | More complex (manual cloning needed)   |
+
+---
