@@ -230,3 +230,115 @@ class Pen2 {
 ```
 
 ---
+
+## 🏛️ 1. **Encapsulation**
+
+> **Definition:** Bundling data (variables) and methods (functions) that operate on the data into a single unit (class), and restricting direct access to some of the object's components.
+
+- Achieved using **private fields** and **public getters/setters**.
+- Promotes **data hiding** and **security**.
+
+**Example:**
+
+```java
+class Student {
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+```
+
+---
+
+## 🧬 2. **Inheritance**
+
+> **Definition:** A mechanism where one class acquires the properties and behaviors of another class.
+
+- Promotes **code reusability**.
+- `extends` keyword is used.
+
+**Example:**
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks");
+    }
+}
+```
+
+---
+
+## 🎭 3. **Polymorphism**
+
+> **Definition:** One interface, many implementations. An object can take many forms.
+
+### Two types:
+
+- **Compile-time (Method Overloading)**
+- **Run-time (Method Overriding)**
+
+**Example (Overriding):**
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Meow");
+    }
+}
+```
+
+---
+
+## 🌫️ 4. **Abstraction**
+
+> **Definition:** Hiding internal implementation details and showing only essential features.
+
+- Achieved using **abstract classes** or **interfaces**.
+- Focuses on **what** an object does, not **how** it does it.
+
+**Example:**
+
+```java
+abstract class Vehicle {
+    abstract void start();
+}
+
+class Car extends Vehicle {
+    void start() {
+        System.out.println("Car starts with key");
+    }
+}
+```
+
+---
+
+### 📌 Summary Table
+
+| Pillar        | Key Concept         | Benefit                        |
+| ------------- | ------------------- | ------------------------------ |
+| Encapsulation | Data hiding         | Security & Control             |
+| Inheritance   | Reuse behavior      | Code reusability               |
+| Polymorphism  | Many forms          | Flexibility & Scalability      |
+| Abstraction   | Hide implementation | Simplicity & Focus on behavior |
+
+---
