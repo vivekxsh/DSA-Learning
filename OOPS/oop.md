@@ -289,6 +289,144 @@ class Dog extends Animal {
 
 ---
 
+### 1. **Single Inheritance**
+
+One class inherits from another.
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();  // inherited method
+        d.bark();
+    }
+}
+```
+
+---
+
+### 2. **Multiple Inheritance (via Interfaces)**
+
+Java does **not support multiple inheritance with classes** directly (to avoid ambiguity), but supports it with interfaces.
+
+```java
+interface Printable {
+    void print();
+}
+
+interface Showable {
+    void show();
+}
+
+class Test implements Printable, Showable {
+    public void print() {
+        System.out.println("Printing...");
+    }
+    public void show() {
+        System.out.println("Showing...");
+    }
+
+    public static void main(String[] args) {
+        Test obj = new Test();
+        obj.print();
+        obj.show();
+    }
+}
+```
+
+---
+
+### 3. **Multilevel Inheritance**
+
+A class inherits from a class which itself inherits from another class.
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks.");
+    }
+}
+
+class BabyDog extends Dog {
+    void weep() {
+        System.out.println("Baby dog weeps.");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        BabyDog bd = new BabyDog();
+        bd.eat();
+        bd.bark();
+        bd.weep();
+    }
+}
+```
+
+---
+
+### 4. **Hierarchical Inheritance**
+
+Multiple classes inherit from the same superclass.
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks.");
+    }
+}
+
+class Cat extends Animal {
+    void meow() {
+        System.out.println("Cat meows.");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();
+        d.bark();
+
+        Cat c = new Cat();
+        c.eat();
+        c.meow();
+    }
+}
+```
+
+---
+
+### 5. **Hybrid Inheritance**
+
+A combination of two or more types. In Java, since multiple inheritance is allowed only via interfaces, hybrid inheritance usually involves interfaces + classes.
+
+---
+
 ## 🎭 3. **Polymorphism**
 
 > **Definition:** One interface, many implementations. An object can take many forms.
