@@ -262,6 +262,10 @@ class Student {
 
 ## 🧬 2. **Inheritance**
 
+![inheritance](images/image5.png)
+
+---
+
 > **Definition:** A mechanism where one class acquires the properties and behaviors of another class.
 
 - Promotes **code reusability**.
