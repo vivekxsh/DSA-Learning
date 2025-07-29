@@ -599,6 +599,8 @@ myDog.makeSound();  // Output: Dog barks
 
 > **Definition:** Hiding internal implementation details and showing only essential features.
 
+![abstraction](images/image10.png)
+
 - Achieved using **abstract classes** or **interfaces**.
 - Focuses on **what** an object does, not **how** it does it.
 
