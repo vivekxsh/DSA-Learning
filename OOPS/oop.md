@@ -954,3 +954,78 @@ project_root/
 | Naming Convention | Usually reverse domain names               |
 
 ---
+
+### What is an Interface in Java?
+
+An **interface** in Java is a reference type, similar to a class, that can contain only constants, method signatures (abstract methods), default methods, static methods, and nested types. Interfaces cannot contain instance fields or constructors.
+
+They are used to specify a contract that a class can implement. When a class implements an interface, it agrees to provide concrete implementations for the abstract methods declared in the interface.
+
+![interface](images/image12.png)
+
+---
+
+### Key Characteristics of Interfaces:
+
+- **Abstract methods only:** Before Java 8, interfaces could only have abstract methods (methods without a body). From Java 8 onward, interfaces can also have default and static methods with implementations.
+- **No constructors:** Interfaces cannot be instantiated on their own.
+- **Multiple inheritance:** A class can implement multiple interfaces, allowing multiple inheritance of type.
+- **All methods are public:** Interface methods are implicitly public and abstract (unless they are default or static methods).
+- **Constants only:** All fields are `public static final` by default.
+
+---
+
+### Syntax
+
+```java
+public interface Animal {
+    void eat();
+    void sleep();
+}
+```
+
+---
+
+### Implementing an Interface
+
+```java
+public class Dog implements Animal {
+    @Override
+    public void eat() {
+        System.out.println("Dog is eating");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println("Dog is sleeping");
+    }
+}
+```
+
+---
+
+### Default and Static Methods (Java 8+)
+
+```java
+public interface Vehicle {
+    void drive();
+
+    default void start() {
+        System.out.println("Vehicle started");
+    }
+
+    static void service() {
+        System.out.println("Vehicle serviced");
+    }
+}
+```
+
+---
+
+### Why Use Interfaces?
+
+- **Multiple inheritance of type:** Java doesn’t support multiple inheritance of classes but allows a class to implement multiple interfaces.
+- **Abstraction:** Defines a contract that implementing classes must follow.
+- **Loose coupling:** Code can work with interfaces rather than specific implementations.
+
+---
