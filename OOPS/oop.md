@@ -793,3 +793,115 @@ A **deep copy** creates a **fully independent copy** of the object, including it
 | Complexity        | Simple (use `clone()` or assignment) | More complex (manual cloning needed)   |
 
 ---
+
+---
+
+## 📦 Packages in Java
+
+### ✅ What is a Package?
+
+A **package** in Java is a **namespace** that organizes a set of related classes and interfaces. Conceptually, it’s like a **folder** or **directory** on your computer where related files are grouped together.
+
+> Package ia a group of similar types of **classes**, **Interfaces** and **sub-packages**
+
+![packages](images/image9.png)
+
+---
+
+### 🔹 Why Use Packages?
+
+- **Organize classes logically** (like grouping similar functionality)
+- **Avoid name conflicts** (e.g., two classes with the same name can exist in different packages)
+- **Control access** with package-level access modifiers
+- **Easier maintenance and code reuse**
+
+---
+
+### 🔹 Types of Packages:
+
+1. **Built-in Packages**  
+   Provided by Java (e.g., `java.lang`, `java.util`, `java.io`)
+2. **User-defined Packages**  
+   Created by the programmer to organize code
+
+---
+
+### 🔹 How to Create a Package?
+
+Use the `package` keyword as the first line in your `.java` file:
+
+```java
+package com.example.myapp;
+
+public class MyClass {
+    public void display() {
+        System.out.println("Hello from MyClass in package com.example.myapp");
+    }
+}
+```
+
+- The package name typically follows the **reverse domain name** convention (like `com.company.project`).
+
+---
+
+### 🔹 How to Use Packages?
+
+To use classes from another package, you use the `import` statement:
+
+```java
+import com.example.myapp.MyClass;
+
+public class Test {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        obj.display();
+    }
+}
+```
+
+Or import all classes in the package:
+
+```java
+import com.example.myapp.*;
+```
+
+---
+
+### 🔹 Default Package
+
+If you don’t specify a package, your classes go into the **default package** (no package). It’s fine for small programs but not recommended for larger projects.
+
+---
+
+### 🔹 Package Access Levels
+
+- **public:** Accessible from any other package
+- **protected / default (no modifier):** Accessible within the same package (default access is package-private)
+- **private:** Not accessible outside the class itself
+
+---
+
+### 🔹 Example Directory Structure
+
+Suppose package `com.example.myapp`:
+
+```
+project_root/
+└── com/
+    └── example/
+        └── myapp/
+            └── MyClass.java
+```
+
+---
+
+### Summary:
+
+| Feature           | Description                                |
+| ----------------- | ------------------------------------------ |
+| Purpose           | Organize classes and interfaces            |
+| Declaration       | `package packageName;` at the top          |
+| Usage             | Use `import` to access classes in packages |
+| Naming Convention | Usually reverse domain names               |
+
+---
