@@ -429,6 +429,10 @@ A combination of two or more types. In Java, since multiple inheritance is allow
 
 ## 🎭 3. **Polymorphism**
 
+![polymorphism](images/image6.png)
+
+---
+
 > **Definition:** One interface, many implementations. An object can take many forms.
 
 ### Two types:
