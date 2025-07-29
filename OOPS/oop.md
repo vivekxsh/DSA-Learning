@@ -1029,3 +1029,138 @@ public interface Vehicle {
 - **Loose coupling:** Code can work with interfaces rather than specific implementations.
 
 ---
+
+### What is `static` in Java?
+
+The `static` keyword is used to indicate that a **member (variable or method) belongs to the class itself, rather than to any specific instance of that class**.
+
+![static](images/image13.png)
+
+---
+
+### Where can you use `static`?
+
+- **Static variables (class variables)**
+- **Static methods**
+- **Static blocks**
+- **Static nested classes**
+
+---
+
+### 1. **Static Variables**
+
+- Also called **class variables**.
+- Shared by all instances of the class.
+- Only one copy exists regardless of how many objects you create.
+
+**Example:**
+
+```java
+public class Counter {
+    static int count = 0;
+
+    public Counter() {
+        count++;
+    }
+
+    public static void displayCount() {
+        System.out.println("Count: " + count);
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        new Counter();
+        new Counter();
+        Counter.displayCount();  // Output: Count: 2
+    }
+}
+```
+
+---
+
+### 2. **Static Methods**
+
+- Belong to the class, not instances.
+- Can be called without creating an object.
+- Can only directly access static variables and call other static methods.
+- Cannot use `this` or `super` keywords.
+
+**Example:**
+
+```java
+public class MathUtils {
+    public static int add(int a, int b) {
+        return a + b;
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        int sum = MathUtils.add(5, 3);
+        System.out.println(sum);  // Output: 8
+    }
+}
+```
+
+---
+
+### 3. **Static Blocks**
+
+- Used to initialize static variables.
+- Executed when the class is loaded.
+
+```java
+public class Example {
+    static int x;
+
+    static {
+        x = 10;
+        System.out.println("Static block executed");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(Example.x);  // Output: Static block executed \n 10
+    }
+}
+```
+
+---
+
+### 4. **Static Nested Classes**
+
+- Nested classes declared `static`.
+- Can be instantiated without an instance of the outer class.
+- Cannot access non-static members of the outer class.
+
+```java
+public class Outer {
+    static class Inner {
+        void display() {
+            System.out.println("Static nested class");
+        }
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Outer.Inner inner = new Outer.Inner();
+        inner.display();  // Output: Static nested class
+    }
+}
+```
+
+---
+
+### Summary
+
+| Feature             | Description                                 |
+| ------------------- | ------------------------------------------- |
+| Static Variable     | Shared among all instances                  |
+| Static Method       | Can be called without an object             |
+| Static Block        | Runs once when class loads                  |
+| Static Nested Class | Nested class that can be instantiated alone |
+
+---
