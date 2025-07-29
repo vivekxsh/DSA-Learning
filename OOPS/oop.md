@@ -478,6 +478,8 @@ public class MethodOverloading {
 
 **Example (Overriding):**
 
+![overriding](images/image8.png)
+
 ```java
 class Animal {
     void sound() {
@@ -492,6 +494,104 @@ class Cat extends Animal {
     }
 }
 ```
+
+---
+
+> **Method Overloading vs Method Overriding**
+
+---
+
+## 🔷 Method Overloading
+
+### ✅ Definition:
+
+**Method Overloading** is when **multiple methods** in the **same class** have the **same name** but **different parameters** (number, type, or order of parameters). This is a type of **compile-time polymorphism**.
+
+### 📌 Key Points:
+
+- Occurs within a **single class**
+- Methods have the **same name** but **different parameter lists**
+- Return type **can be different**, but it **does not help in overloading alone**
+- It improves code readability
+
+### 🔧 Example:
+
+```java
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+```
+
+### 🟢 Usage:
+
+```java
+Calculator calc = new Calculator();
+System.out.println(calc.add(5, 10));           // Calls int version
+System.out.println(calc.add(5.5, 4.5));         // Calls double version
+System.out.println(calc.add(1, 2, 3));          // Calls 3-arg version
+```
+
+---
+
+## 🔷 Method Overriding
+
+### ✅ Definition:
+
+**Method Overriding** occurs when a **subclass** provides a specific implementation of a method that is already defined in its **superclass**. This is a type of **runtime polymorphism**.
+
+### 📌 Key Points:
+
+- Involves **inheritance** (i.e., parent and child class)
+- Method in the child class must have the **same name, return type, and parameters** as in the parent class
+- Used to implement **dynamic (runtime) polymorphism**
+- Access modifier in child class **cannot be more restrictive** than in the parent class
+
+### 🔧 Example:
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+```
+
+### 🟢 Usage:
+
+```java
+Animal myDog = new Dog();
+myDog.makeSound();  // Output: Dog barks
+```
+
+---
+
+## 🔁 Key Differences Between Overloading and Overriding:
+
+| Feature           | Method Overloading                      | Method Overriding                          |
+| ----------------- | --------------------------------------- | ------------------------------------------ |
+| Polymorphism Type | Compile-time (static) polymorphism      | Runtime (dynamic) polymorphism             |
+| Involves          | Same class                              | Inheritance (subclass and superclass)      |
+| Method Signature  | Must be different                       | Must be exactly the same                   |
+| Return Type       | Can be different (if signature differs) | Must be same or covariant                  |
+| Access Modifier   | Can be anything                         | Cannot be more restrictive than superclass |
+| Annotation        | Not required                            | Commonly uses `@Override`                  |
 
 ---
 
