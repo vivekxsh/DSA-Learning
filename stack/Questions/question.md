@@ -1,6 +1,16 @@
 ### Questions
 
+---
+
 ### `push` at the bottom of the stack
+
+![push bottom](images/image.png)
+
+---
+
+![push bottom](images/image1.png)
+
+---
 
 ```java
 package stack.Questions;
