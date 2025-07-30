@@ -18,7 +18,7 @@ class Pen {
 
 }
 
-class Animal {
+class Animal5 {
     String name;
     int legs;
 

@@ -1,12 +1,12 @@
 package OOPS;
 
-class Animal {
+class Animal4 {
     void eat() {
         System.out.println("eats");
     }
 }
 
-class Deer extends Animal {
+class Deer extends Animal4 {
     void eat() {
         System.out.println("deer eats");
     }

@@ -1,14 +1,14 @@
 package OOPS;
 
-class Animal {
+class Animal2 {
     String color;
 
-    Animal() {
+    Animal2() {
         System.out.println("Animal constructor is called");
     }
 }
 
-class Horse extends Animal {
+class Horse extends Animal2 {
     Horse() {
         super.color = "Brown";
         System.out.println("Horse constructor is called");

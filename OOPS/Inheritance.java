@@ -1,7 +1,7 @@
 package OOPS;
 
 // base class / parent class
-class Animal {
+class Animal3 {
     String skinColor;
 
     void eat() {
@@ -14,7 +14,7 @@ class Animal {
 }
 
 // derived class / subclass
-class Fish extends Animal {
+class Fish extends Animal3 {
     int fins;
 
     void swim() {
