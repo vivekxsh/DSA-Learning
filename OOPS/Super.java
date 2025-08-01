@@ -8,8 +8,8 @@ class Animal2 {
     }
 }
 
-class Horse extends Animal2 {
-    Horse() {
+class Horse2 extends Animal2 {
+    Horse2() {
         super.color = "Brown";
         System.out.println("Horse constructor is called");
     }
@@ -18,7 +18,7 @@ class Horse extends Animal2 {
 public class Super {
     public static void main(String[] args) {
 
-        Horse h = new Horse();
+        Horse2 h = new Horse2();
         System.out.println(h.color);
 
     }
