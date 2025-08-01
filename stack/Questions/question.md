@@ -380,3 +380,88 @@ public class NextGreaterElement {
   - If the stack is empty, no greater element → `-1`.
   - Otherwise, top of the stack is the NGE.
   - Push the current element onto the stack for future comparisons.
+
+---
+
+### Valid Parantheses
+
+To check if a string of **parentheses is valid** (i.e., every opening bracket has a corresponding closing bracket in the correct order), you can use a **stack**.
+
+---
+
+![valid parantheses](images/image8.png)
+![valid parantheses](images/image9.png)
+
+---
+
+### 🔍 Explanation:
+
+- Push all **opening brackets** onto the stack.
+- On encountering a **closing bracket**, check if it matches the top of the stack:
+  - If not, it's invalid.
+  - If yes, pop the stack and continue.
+- At the end, the string is valid only if the **stack is empty**.
+
+---
+
+### ✅ Example Inputs & Outputs:
+
+| Input      | Output |
+| ---------- | ------ |
+| `"()"`     | true   |
+| `"()[]{}"` | true   |
+| `"(]"`     | false  |
+| `"([)]"`   | false  |
+| `"{[]}"`   | true   |
+
+---
+
+```java
+package stack.Questions;
+
+import java.util.Stack;
+import java.util.Scanner;
+
+public class ValidParantheses {
+    public static boolean parantheses(String brackets) {
+
+        Stack<Character> storeParantheses = new Stack<>();
+
+        for (int i = 0; i < brackets.length(); i++) {
+            char bracket = brackets.charAt(i);
+            if (bracket == '(' || bracket == '{' || bracket == '[') {
+                storeParantheses.push(bracket);
+            }
+
+            else {
+                if (storeParantheses.isEmpty()) {
+                    return false;
+                }
+                char top = storeParantheses.pop();
+                if ((bracket == ')' && top != '(') ||
+                        (bracket == '}' && top != '{') ||
+                        (bracket == ']' && top != '[')) {
+                    return false;
+                }
+
+            }
+        }
+
+        return storeParantheses.isEmpty();
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a parantheses string: ");
+        String brackets = sc.nextLine();
+
+        System.out.println((parantheses(brackets)) ? brackets + " is a valid parantheses."
+                : brackets + " is not a valid parantheses.");
+
+        sc.close();
+
+    }
+}
+```
