@@ -263,3 +263,120 @@ public class StockSpanProblem {
 ```
 
 ---
+
+### Find next greater element (Using Stack)
+
+### TC : `O(n)`
+
+---
+
+![find next](images/image5.png)
+![find next](images/image6.png)
+![find next](images/image7.png)
+
+---
+
+### ✅ Problem:
+
+For each element in the array, find the next element to the right that is **greater** than it. If no such element exists, return `-1` for that position.
+
+---
+
+```java
+package stack.Questions;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class NextGreaterElement {
+
+    public static int[] nextGreater(int greater[]) {
+
+        int nGreater[] = new int[greater.length];
+
+        Stack<Integer> findGreater = new Stack<>();
+
+        for (int i = greater.length - 1; i >= 0; i--) {
+            int element = greater[i];
+            while (!findGreater.isEmpty() && findGreater.peek() <= element) {
+                findGreater.pop();
+            }
+
+            nGreater[i] = findGreater.isEmpty() ? -1 : findGreater.peek();
+
+            findGreater.push(element);
+        }
+
+        return nGreater;
+    }
+
+    public static void main(String[] args) {
+        // int elements[] = { 6, 8, 0, 1, 3 };
+
+        /*
+         *
+         * Approach 1 -> Brute force approach
+         *
+         * Scanner sc = new Scanner(System.in);
+         * System.out.print("Enter the size of the elements array: ");
+         * int n = sc.nextInt();
+         * System.out.print("Enter elements in elements array: ");
+         * int elements[] = new int[n];
+         * for (int i = 0; i < n; i++) {
+         * elements[i] = sc.nextInt();
+         * }
+         *
+         * int nextGreater[] = new int[n];
+         * for (int i = 0; i < elements.length; i++) {
+         * for (int j = i + 1; j < elements.length; j++) {
+         * if (elements[i] < elements[j]) {
+         * nextGreater[i] = elements[j];
+         * break;
+         * } else {
+         * nextGreater[i] = -1;
+         * }
+         * }
+         * }
+         * nextGreater[n - 1] = -1;
+         *
+         * for (int i = 0; i < n; i++) {
+         * System.out.print((i < n - 1) ? nextGreater[i] + ", " : nextGreater[i]);
+         * }
+         * System.out.println();
+         *
+         * sc.close();
+         *
+         */
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the length of the array: ");
+        int n = sc.nextInt();
+        System.out.println("Enter elements in array: ");
+        int greater[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            greater[i] = sc.nextInt();
+        }
+
+        int nGreater[] = nextGreater(greater);
+
+        for (int i = 0; i < n; i++) {
+            System.out.print((i < n - 1) ? nGreater[i] + ", " : nGreater[i]);
+        }
+
+        sc.close();
+
+    }
+}
+```
+
+---
+
+### 🔍 Explanation:
+
+- Start from the **rightmost** element.
+- Use a **stack** to keep track of possible greater elements.
+- For each element:
+  - Pop all smaller or equal elements from the stack.
+  - If the stack is empty, no greater element → `-1`.
+  - Otherwise, top of the stack is the NGE.
+  - Push the current element onto the stack for future comparisons.
