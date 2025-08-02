@@ -465,3 +465,82 @@ public class ValidParantheses {
     }
 }
 ```
+
+---
+
+### Duplicate parentheses
+
+Detecting **duplicate parentheses** in a Java expression is a common problem that can be efficiently solved using a **stack**. Duplicate parentheses mean there are extra parentheses that do not affect the expression, like `"((a+b))"` — the outer pair is unnecessary.
+
+---
+
+![parentheses](images/image10.png)
+![parentheses](images/image11.png)
+![parentheses](images/image12.png)
+
+---
+
+### ✅ Problem Example:
+
+```java
+Input:  ((a+b))
+Output: true  // Duplicate parentheses
+
+Input:  (a+(b)/c)
+Output: false  // No duplicates
+
+Input:  (a+b*(c-d))
+Output: false  // No duplicates
+```
+
+---
+
+```java
+package stack.Questions;
+
+import java.util.Stack;
+import java.util.Scanner;
+
+public class DuplicateParentheses {
+
+    public static boolean hasDuplicateParentheses(String expression) {
+
+        Stack<Character> parentheses = new Stack<>();
+        for (char ch : expression.toCharArray()) {
+
+            if (ch == ')') {
+                int count = 0;
+
+                while (!parentheses.isEmpty() && parentheses.peek() != '(') {
+
+                    parentheses.pop();
+                    count++;
+                }
+
+                if (!parentheses.isEmpty()) {
+                    parentheses.pop();
+                }
+
+                if (count == 0) {
+                    return true;
+                }
+            } else {
+                parentheses.push(ch);
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the expression: ");
+        String expression = sc.nextLine();
+
+        System.out.println(hasDuplicateParentheses(expression));
+
+        sc.close();
+    }
+
+}
+```
