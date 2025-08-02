@@ -495,6 +495,19 @@ Output: false  // No duplicates
 
 ---
 
+### 💡 Approach:
+
+Use a **stack** to process the expression:
+
+- Traverse the characters of the expression.
+- Push each character onto the stack **until a closing parenthesis `)`** is encountered.
+- When you find a closing parenthesis:
+  - Check the top of the stack.
+  - If you immediately find an opening parenthesis `'('`, it means there were no operators or operands between `()` → **duplicate**.
+  - Else, pop until you find `'('` (i.e., remove the expression inside parentheses).
+
+---
+
 ```java
 package stack.Questions;
 
