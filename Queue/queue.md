@@ -367,3 +367,246 @@ queue.remove();
   - You need **list-like behavior** or **frequent insertions/removals in the middle** (which Queue doesn't typically need).
 
 ---
+
+### Queue implementation by the help of two stack
+
+![queue](images/image3.png)
+![queue](images/image4.png)
+
+---
+
+```java
+package Queue;
+
+import java.util.Stack;
+
+public class QueueUsingStacks {
+    static class Queue {
+        static Stack<Integer> s1 = new Stack<>();
+        static Stack<Integer> s2 = new Stack<>();
+
+        // isEmpty()
+        public static boolean isEmpty() {
+            return s1.isEmpty();
+        }
+
+        // add
+        public static void add(int data) {
+            while (!s1.isEmpty()) {
+                s2.push(s1.pop());
+            }
+
+            s1.push(data);
+
+            while (!s2.isEmpty()) {
+                s1.push(s2.pop());
+            }
+        }
+
+        // remove function
+        public static int remove() {
+            if (s1.isEmpty()) {
+                System.out.println("Queue is empty.");
+                return -1;
+            }
+
+            return s1.pop();
+        }
+
+        // peek function
+        public static int peek() {
+            if (s1.isEmpty()) {
+                System.out.println("Queue is empty.");
+                return -1;
+            }
+
+            return s1.peek();
+        }
+    }
+
+    @SuppressWarnings("static-access")
+    public static void main(String[] args) {
+        Queue queue = new Queue();
+
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+
+        while (!queue.isEmpty()) {
+
+            System.out.println(queue.peek());
+            queue.remove();
+
+        }
+    }
+}
+```
+
+---
+
+### Implement Stack using two Queue
+
+![stack](images/image5.png)
+
+---
+
+```java
+package Queue;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class StackUsingTwoQueue {
+    static class Stack {
+        static Queue<Integer> q1 = new LinkedList<>();
+        static Queue<Integer> q2 = new LinkedList<>();
+
+        // isEmpty function
+        public static boolean isEmpty() {
+            return q1.isEmpty() && q2.isEmpty();
+        }
+
+        // add function
+        public static void push(int data) {
+            if (!q1.isEmpty()) {
+                q1.add(data);
+            } else {
+                q2.add(data);
+            }
+        }
+
+        // remove function
+        public static int pop() {
+
+            if (isEmpty()) {
+                System.out.println("Stack is Empty.");
+                return -1;
+            }
+            int top = -1;
+
+            // case 1
+            if (!q1.isEmpty()) {
+                while (!q1.isEmpty()) {
+                    top = q1.remove();
+                    if (q1.isEmpty()) {
+                        break;
+                    }
+                    q2.add(top);
+                }
+
+            }
+
+            // case 2
+            else {
+                while (!q2.isEmpty()) {
+                    top = q2.remove();
+                    if (q2.isEmpty()) {
+                        break;
+                    }
+                    q1.add(top);
+                }
+            }
+
+            return top;
+
+        }
+
+        // peek function
+        public static int peek() {
+            if (isEmpty()) {
+                System.out.println("Stack is empty.");
+                return -1;
+            }
+
+            int top = -1;
+
+            if (!q1.isEmpty()) {
+                while (!q1.isEmpty()) {
+                    top = q1.remove();
+                    q2.add(top);
+                }
+            } else {
+                while (!q2.isEmpty()) {
+                    top = q2.remove();
+                    q1.add(top);
+                }
+            }
+
+            return top;
+        }
+    }
+
+    @SuppressWarnings("static-access")
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        while (!stack.isEmpty()) {
+            System.out.println(stack.peek());
+            stack.pop();
+        }
+    }
+}
+```
+
+---
+
+---
+
+### Find First Non-Repeating Letter in a String
+
+![repeating letter](images/image6.png)
+![repeating letter](images/image7.png)
+![repeating letter](images/image8.png)
+
+---
+
+```java
+package Queue;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class FirstNonRepeatingCharacter {
+
+    public static void printNonRepeating(String str) {
+        int freq[] = new int[26]; // 'a' -> 'z'
+        Queue<Character> q = new LinkedList<>();
+
+        for (char ch : str.toCharArray()) {
+            q.add(ch);
+            freq[ch - 'a']++;
+
+            while (!q.isEmpty() && freq[q.peek() - 'a'] > 1) {
+                q.remove();
+            }
+
+            if (q.isEmpty()) {
+                System.out.print("-1 ");
+            }
+            System.out.print(q.peek() + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+
+        // String str = "aabxxccbvsrt";
+        // String str = "aabccxb";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter string: ");
+        String str = sc.nextLine();
+
+        printNonRepeating(str);
+
+        sc.close();
+
+    }
+}
+```
