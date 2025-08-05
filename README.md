@@ -43,7 +43,7 @@ This repo is a testament to my commitment to mastering these fundamental concept
 
 ---
 
-````markdown
+
 ## 📂 How to Access This Repository
 
 You can access all the materials and code by visiting the GitHub repo:
@@ -51,6 +51,8 @@ You can access all the materials and code by visiting the GitHub repo:
 👉 [DSA Learning by vivekxsh](https://github.com/vivekxsh/DSA-Learning)
 
 To clone the repository to your local machine, run:
+
+````markdown
 
 ```bash
 git clone https://github.com/vivekxsh/DSA-Learning.git
