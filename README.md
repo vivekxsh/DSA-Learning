@@ -53,11 +53,7 @@ You can access all the materials and code by visiting the GitHub repo:
 To clone the repository to your local machine, run:
 
 ````markdown
-
-
 git clone https://github.com/vivekxsh/DSA-Learning.git
-
-
 ````
 
 ---
