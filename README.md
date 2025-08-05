@@ -54,9 +54,9 @@ To clone the repository to your local machine, run:
 
 ````markdown
 
-```bash
+
 git clone https://github.com/vivekxsh/DSA-Learning.git
-```
+
 
 ````
 
