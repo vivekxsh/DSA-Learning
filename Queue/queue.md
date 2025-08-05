@@ -712,3 +712,265 @@ public class Interleave2Half {
 ```
 
 ---
+
+### Reverse a Queue
+
+![reverse queue](images/image11.png)
+
+---
+
+```java
+package Queue;
+
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueReversal {
+
+    public static void reverseQueue(Queue<Integer> q) {
+        System.out.println("Reverse the queue.");
+        Stack<Integer> stack = new Stack<>();
+
+        while (!q.isEmpty()) {
+            stack.push(q.remove());
+        }
+
+        while (!stack.isEmpty()) {
+            q.add(stack.pop());
+        }
+    }
+
+    public static void main(String[] args) {
+
+        // int element[] = { 1, 2, 3, 4, 5 };
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements to be entered in the queue. -> ");
+        int n = sc.nextInt();
+
+        System.out.println("Enter the elements in the queue.");
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            q.add(sc.nextInt());
+        }
+
+        // **************** Calling the reverseQueue function ***********************
+        reverseQueue(q);
+
+        // System.out.println("Reverse the elements in the queue.");
+        // Stack<Integer> stack = new Stack<>();
+        // while (!q.isEmpty()) {
+        // stack.push(q.remove());
+        // }
+
+        // while (!stack.isEmpty()) {
+        // q.add(stack.pop());
+        // }
+
+        while (!q.isEmpty()) {
+            System.out.print(q.remove() + " ");
+        }
+
+        sc.close();
+
+    }
+}
+```
+
+---
+
+### Deque Data Structure
+
+A **Deque** (Double-Ended Queue) in Java is a linear collection that supports element insertion and removal at both ends — front and back.
+
+![deque](images/image12.png)
+
+---
+
+### Key points about Deque:
+
+- You can add, remove, and examine elements from both ends.
+- Can be used as a stack, queue, or double-ended queue.
+- Implementations include `ArrayDeque` and `LinkedList`.
+
+---
+
+### Deque Interface in Java
+
+The `Deque` interface is part of `java.util` package:
+
+```java
+import java.util.Deque;
+import java.util.ArrayDeque;
+```
+
+---
+
+### Common methods in Deque
+
+| Method            | Description                                          |
+| ----------------- | ---------------------------------------------------- |
+| `addFirst(E e)`   | Inserts element at the front                         |
+| `addLast(E e)`    | Inserts element at the end                           |
+| `offerFirst(E e)` | Inserts element at the front, returns false if fails |
+| `offerLast(E e)`  | Inserts element at the end, returns false if fails   |
+| `removeFirst()`   | Removes and returns first element                    |
+| `removeLast()`    | Removes and returns last element                     |
+| `pollFirst()`     | Removes and returns first element or null if empty   |
+| `pollLast()`      | Removes and returns last element or null if empty    |
+| `getFirst()`      | Retrieves, but does not remove, first element        |
+| `getLast()`       | Retrieves, but does not remove, last element         |
+| `peekFirst()`     | Retrieves first element or null if empty             |
+| `peekLast()`      | Retrieves last element or null if empty              |
+
+---
+
+### Example using `ArrayDeque`:
+
+```java
+package Queue;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
+public class DEQUE {
+    public static void main(String[] args) {
+        Deque<Integer> deque = new LinkedList<>();
+
+        deque.addFirst(1);// 1
+        deque.addFirst(2); // 2 1
+        deque.addLast(3); // 2 1 3
+        deque.addLast(4); // 2 1 3 4
+        System.out.println(deque);
+        deque.removeFirst();
+        System.out.println(deque);
+        deque.removeLast();
+        System.out.println(deque);
+
+        System.out.println("First element = " + deque.getFirst());
+        System.out.println("Last element = " + deque.getLast());
+
+    }
+}
+
+```
+
+---
+
+### When to use Deque?
+
+- Use `Deque` when you need to add/remove elements from both ends efficiently.
+- Use `ArrayDeque` for most cases — it’s faster than `LinkedList` as Deque.
+- Use `LinkedList` if you need to frequently insert/remove from middle or want a doubly linked list structure.
+
+---
+
+### Implement Stack by using Deque
+
+![stack](images/image13.png)
+
+---
+
+```java
+package Queue;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
+public class StackUsingDeque {
+    static class Stack {
+
+        Deque<Integer> deque = new LinkedList<>();
+
+        // isEmpty function
+        public boolean isEmpty() {
+            return deque.isEmpty();
+        }
+
+        // push operation
+        public void push(int data) {
+            deque.addLast(data);
+        }
+
+        // pop operation
+        public int pop() {
+            return deque.removeLast();
+        }
+
+        // peek operation
+        public int peek() {
+            return deque.getLast();
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+
+        System.out.println(stack.isEmpty());
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        while (!stack.isEmpty()) {
+            System.out.println(stack.peek());
+            stack.pop();
+        }
+
+    }
+}
+```
+
+### Implement Queue using Deque
+
+![queue](images/image14.png)
+
+---
+
+```java
+package Queue;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
+public class QueueUsingDeque {
+    static class Queue {
+        Deque<Integer> deque = new LinkedList<>();
+
+        // isEmpty function
+        public boolean isEmpty() {
+            return deque.isEmpty();
+        }
+
+        // add function
+        public void add(int data) {
+            deque.addLast(data);
+        }
+
+        // remove function
+        public int remove() {
+            return deque.removeFirst();
+        }
+
+        // peek function
+        public int peek() {
+            return deque.getFirst();
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue queue = new Queue();
+
+        queue.isEmpty();
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+
+        while (!queue.isEmpty()) {
+            System.out.println(queue.peek());
+            queue.remove();
+        }
+    }
+}
+```
