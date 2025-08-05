@@ -48,6 +48,8 @@ This repo is a testament to my commitment to mastering these fundamental concept
 
 You can access all the materials and code by visiting the GitHub repo:
 
+## 🔗 GitHub Repository
+
 👉 [DSA Learning by vivekxsh](https://github.com/vivekxsh/DSA-Learning)
 
 To clone the repository to your local machine, run:
@@ -61,12 +63,6 @@ git clone https://github.com/vivekxsh/DSA-Learning.git
 ## 👤 About Me
 
 I am passionate about programming and problem-solving, and this repository reflects my daily efforts to become proficient in DSA using **Java**. Follow along as I continue to learn, code, and grow in this exciting field.
-
----
-
-## 🔗 GitHub Repository
-
-[DSA Learning by vivekxsh](https://github.com/vivekxsh/DSA-Learning)
 
 ---
 
