@@ -37,7 +37,6 @@ This document outlines common components used in flowcharts, as depicted in the 
 This Java program prompts the user to enter two integer numbers and then calculates and displays their sum.
 
 ```java
-package flowchart;
 
 import java.util.Scanner;
 
@@ -77,7 +76,6 @@ This Java program calculates the simple interest based on the principal amount, 
 Simple Interest (SI) = (Principal × Rate × Time) / 100
 
 ```java
-package flowchart;
 
 import java.util.Scanner;
 
@@ -117,7 +115,6 @@ public class simple_interest {
 This Java program takes three integer inputs from the user and then determines and prints the largest among them.
 
 ```java
-package flowchart;
 
 import java.util.Scanner;
 
@@ -151,7 +148,6 @@ public class max_of_3 {
 # Java Program to Find the number is prime or not
 
 ```java
-package flowchart;
 
 import java.util.Scanner;
 
@@ -182,7 +178,6 @@ public class prime {
 # Java program to find sum of first N natural number -> n(n+1)/2
 
 ```java
-package flowchart;
 
 import java.util.Scanner;
 
