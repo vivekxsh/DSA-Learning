@@ -1,7 +1,6 @@
 ### Question 1 : Write a Java method to compute the average of three numbers.
 
 ```java
-package functionsAndMethods.problems;
 
 import java.util.Scanner;
 
@@ -31,7 +30,6 @@ public class calculateAverage {
 ### Question 2 : Write a method named isEven that accepts an int argument. The method should return true if the argument is even, or false otherwise. Also write a program to test your method
 
 ```java
-package functionsAndMethods.problems;
 
 import java.util.Scanner;
 
@@ -60,7 +58,6 @@ public class evenOrOdd {
 ### Question 3 : Write a Java program tocheckif a number is a palindrome in Java? ( 121 is a palindrome, 321 is not) A numberis called a palindrome if the number is equal to the reverse of a number e.g., 121 is a palindrome because the reverse of 121 is 121 itself. On the other hand, 321 is not a palindrome because the reverse of 321 is 123, which is not equal to 321
 
 ```java
-package functionsAndMethods.problems;
 
 import java.util.Scanner;
 
@@ -105,7 +102,6 @@ d. Math.pow( ) - Returns a raised to the power of b.
 e. Math.abs( ) – Returns the absolute (positive) value of x.
 
 ```java
-package functionsAndMethods.problems;
 
 import java.util.Scanner;
 
@@ -131,7 +127,6 @@ public class mathFunction {
 ### Question 5 : Write a Java method to compute the sum of the digits in an integer.
 
 ```java
-package functionsAndMethods.problems;
 
 import java.util.Scanner;
 

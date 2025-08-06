@@ -13,7 +13,6 @@
 ---
 
 ```java
-package stack.Questions;
 
 import java.util.Stack;
 
@@ -65,7 +64,6 @@ public class PushAtTheBottom {
 ---
 
 ```java
-package stack.Questions;
 
 import java.util.Stack;
 
@@ -104,7 +102,6 @@ public class ReverseString {
 ### `Reverse` a stack
 
 ```java
-package stack.Questions;
 
 import java.util.Stack;
 
@@ -203,7 +200,6 @@ Output: `[1, 1, 2, 4, 5, 1]`
 ---
 
 ```java
-package stack.Questions;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -283,7 +279,6 @@ For each element in the array, find the next element to the right that is **grea
 ---
 
 ```java
-package stack.Questions;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -417,7 +412,6 @@ To check if a string of **parentheses is valid** (i.e., every opening bracket ha
 ---
 
 ```java
-package stack.Questions;
 
 import java.util.Stack;
 import java.util.Scanner;
@@ -509,7 +503,6 @@ Use a **stack** to process the expression:
 ---
 
 ```java
-package stack.Questions;
 
 import java.util.Stack;
 import java.util.Scanner;

@@ -75,7 +75,6 @@ public class Main {
 **_reverse an arrayList_**
 
 ```java
-package Arraylist;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -115,7 +114,6 @@ public class printReverse {
 **_-> Find maximum in arraylist_**
 
 ```java
-package Arraylist;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -170,7 +168,6 @@ Maximum number: 9
 **_-> Swap two numbers in arrylist_**
 
 ```java
-package Arraylist;
 
 import java.util.ArrayList;
 
@@ -209,7 +206,6 @@ public class swapNumber {
 **_-> Sorting on arraylist_**
 
 ```java
-package Arraylist;
 
 import java.util.*;
 
@@ -257,7 +253,6 @@ Sorted in descending order.
 ---
 
 ```java
-package Arraylist;
 
 import java.util.ArrayList;
 
@@ -312,7 +307,6 @@ public class twoDArrayList {
 ---
 
 ```java
-package Arraylist;
 
 import java.util.Scanner;
 
@@ -385,7 +379,6 @@ Time complexity : $$O(n)$$
 ---
 
 ```java
-package Arraylist;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -460,7 +453,6 @@ Time Complexity : $$O(n^2)$$
 ---
 
 ```java
-package Arraylist;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -524,7 +516,6 @@ Time Complexity : $$O(n)$$
 ---
 
 ```java
-package Arraylist;
 
 import java.util.Scanner;
 import java.util.ArrayList;

@@ -3,7 +3,6 @@
 **_->Question 1: Find the occurence of a particular number_**
 
 ```java
-package Recursion.problems;
 
 import java.util.Scanner;
 
@@ -49,7 +48,6 @@ public class Question1 {
 **_-> Question 2: Convert the numbers into string (0 -> 'zero')_**
 
 ```java
-package Recursion.problems;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -177,7 +175,6 @@ public class Question2 {
 **_-> Question 3: Write a program by using recursion to find the length of the string_**
 
 ```java
-package Recursion.problems;
 
 import java.util.Scanner;
 

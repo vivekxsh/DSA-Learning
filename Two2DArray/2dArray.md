@@ -15,7 +15,6 @@
 #### -> Creation of 2D Array
 
 ```java
-package Two2DArray;
 
 import java.util.Scanner;
 
@@ -57,7 +56,6 @@ public class CreationOf2DArray {
 #### CODE
 
 ```java
-package Two2DArray;
 
 public class spiral {
 
@@ -114,7 +112,6 @@ public class spiral {
 ![Diagonal sum](image5.png)
 
 ```java
-package Two2DArray;
 
 import java.util.Scanner;
 
@@ -165,7 +162,6 @@ public class diagonalSum {
 ![2D sorted array](image6.png)
 
 ```java
-package Two2DArray;
 
 import java.util.Scanner;
 

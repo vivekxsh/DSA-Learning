@@ -13,7 +13,6 @@
 #### CODE
 
 ```java
-package Arrays;
 
 public class linearSearch {
     public static void main(String[] args) {
@@ -35,7 +34,6 @@ public class linearSearch {
 #### CODE
 
 ```java
-package Arrays;
 
 public class largestInArray {
     public static void main(String[] args) {
@@ -59,7 +57,6 @@ public class largestInArray {
 #### CODE
 
 ```java
-package Arrays;
 
 public class binarySearch {
 
@@ -101,7 +98,6 @@ public class binarySearch {
 #### -> Reverse an array
 
 ```java
-package Arrays;
 
 import java.util.Scanner;
 
@@ -155,7 +151,6 @@ public class reverseArray {
 ![pairs in array](image3.png)
 
 ```java
-package Arrays;
 
 import java.util.Scanner;
 
@@ -189,7 +184,6 @@ public class pairsInArray {
 #### -> Subarray of the given array
 
 ```java
-package Arrays;
 
 import java.util.Scanner;
 
@@ -226,7 +220,6 @@ public class subArray {
 #### -> Calculate maximum subarray sum
 
 ```java
-package Arrays;
 
 import java.util.Scanner;
 
@@ -272,7 +265,6 @@ public class maxSubSum {
 #### -> Calculate maximum subarray sum by the help of prefix sum array
 
 ```java
-package Arrays;
 
 import java.util.Scanner;
 
@@ -329,7 +321,6 @@ public class subarraySumPrefix {
 #### -> Calculate maximum subarray sum by the help of kadane's
 
 ```java
-package Arrays;
 
 import java.util.Scanner;
 

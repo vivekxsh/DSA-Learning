@@ -4,7 +4,6 @@
 **_Print the number of 7's that are in the 2D array_**
 
 ```java
-package Two2DArray.problems;
 
 // print the number of 7's present in 2d array
 
@@ -56,7 +55,6 @@ public class Question1 {
 **_Find the row sum for particular row_**
 
 ```java
-package Two2DArray.problems;
 
 import java.util.Scanner;
 
@@ -109,7 +107,6 @@ public class Question2 {
 **_Transpose of a matrix_**
 
 ```java
-package Two2DArray.problems;
 
 import java.util.Scanner;
 

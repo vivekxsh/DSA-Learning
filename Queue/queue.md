@@ -47,7 +47,6 @@ Java provides the `Queue` interface in the `java.util` package. It is typically 
 ### Queue implementation using Array
 
 ```java
-package Queue;
 
 public class QueueArrayImplementation {
     static class Queue {
@@ -143,7 +142,6 @@ public class QueueArrayImplementation {
 ---
 
 ```java
-package Queue;
 
 public class QueueLinkedlistImplementation {
     static class Node {
@@ -376,7 +374,6 @@ queue.remove();
 ---
 
 ```java
-package Queue;
 
 import java.util.Stack;
 
@@ -451,7 +448,6 @@ public class QueueUsingStacks {
 ---
 
 ```java
-package Queue;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -566,7 +562,6 @@ public class StackUsingTwoQueue {
 ---
 
 ```java
-package Queue;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -621,7 +616,6 @@ public class FirstNonRepeatingCharacter {
 ---
 
 ```java
-package Queue;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -720,7 +714,6 @@ public class Interleave2Half {
 ---
 
 ```java
-package Queue;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -829,7 +822,6 @@ import java.util.ArrayDeque;
 ### Example using `ArrayDeque`:
 
 ```java
-package Queue;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -873,7 +865,6 @@ public class DEQUE {
 ---
 
 ```java
-package Queue;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -929,7 +920,6 @@ public class StackUsingDeque {
 ---
 
 ```java
-package Queue;
 
 import java.util.Deque;
 import java.util.LinkedList;

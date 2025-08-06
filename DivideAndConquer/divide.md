@@ -11,7 +11,6 @@
 **_SC = O(n)_**
 
 ```java
-package DivideAndConquer;
 
 import java.util.Scanner;
 
@@ -113,7 +112,6 @@ public class mergeSort {
 || **_( TC = O(n^2) )_**
 
 ```java
-package DivideAndConquer;
 
 import java.util.Scanner;
 
@@ -191,7 +189,6 @@ public class quickSort {
 ![rotated array](images/image8.png)
 
 ```java
-package DivideAndConquer;
 
 import java.util.Scanner;
 

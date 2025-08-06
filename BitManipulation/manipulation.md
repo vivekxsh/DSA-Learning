@@ -15,7 +15,6 @@
 **_-> CODE_**
 
 ```java
-package BitManipulation;
 
 public class binaryAND {
     public static void main(String[] args) {
@@ -30,7 +29,6 @@ public class binaryAND {
 **_-> CODE_**
 
 ```java
-package BitManipulation;
 
 public class binaryOR {
     public static void main(String[] args) {
@@ -44,7 +42,6 @@ public class binaryOR {
 **_-> CODE_**
 
 ```java
-package BitManipulation;
 
 public class binaryXOR {
     public static void main(String[] args) {
@@ -61,7 +58,6 @@ public class binaryXOR {
 **_-> CODE_**
 
 ```java
-package BitManipulation;
 
 public class binaryOneComplement {
     public static void main(String[] args) {
@@ -78,7 +74,6 @@ public class binaryOneComplement {
 **_-> CODE_**
 
 ```java
-package BitManipulation;
 
 public class binaryLeftShift {
     public static void main(String[] args) {
@@ -99,7 +94,6 @@ public class binaryLeftShift {
 **_-> CODE_**
 
 ```java
-package BitManipulation;
 
 public class binaryRightShift {
     public static void main(String[] args) {
@@ -118,7 +112,6 @@ public class binaryRightShift {
 ![odd or even](image13.png)
 
 ```java
-package BitManipulation;
 
 import java.util.Scanner;
 
@@ -152,7 +145,6 @@ public class oddOrEven {
 ![ith Bit](image14.png)
 
 ```java
-package BitManipulation;
 
 import java.util.Scanner;
 
@@ -187,7 +179,6 @@ public class ithPositionBit {
 ![set bit](image15.png)
 
 ```java
-package BitManipulation;
 
 import java.util.Scanner;
 
@@ -219,7 +210,6 @@ public class setIthPostion {
 ![clear ith bit](image16.png)
 
 ```java
-package BitManipulation;
 
 import java.util.Scanner;
 

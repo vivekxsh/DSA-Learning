@@ -13,7 +13,6 @@
 **_Functions without parameter:_**
 
 ```java
-package functionsAndMethods;
 
 public class functionsWithoutPara {
 
@@ -38,7 +37,6 @@ public class functionsWithoutPara {
 CODE
 
 ```java
-package functionsAndMethods;
 
 import java.util.Scanner;
 
@@ -67,7 +65,6 @@ public class functionwithpara {
 **_Java always Call by value_**
 
 ```java
-package functionsAndMethods;
 
 public class callByValue {
 
@@ -118,7 +115,6 @@ public class callByValue {
 **_->Calculate the product of two number_**
 
 ```java
-package functionsAndMethods;
 
 import java.util.Scanner;
 
@@ -147,7 +143,6 @@ public class productOfTwoNum {
 ![factorial](image5.png)
 
 ```java
-package functionsAndMethods;
 
 import java.util.Scanner;
 
@@ -196,7 +191,6 @@ To calculate the number of ways to choose 2 items from a set of 4 items (C(4, 2)
 $$ C(4, 2) = \frac{4!}{2! \times (4-2)!} = \frac{4!}{2! \times 2!} = \frac{4 \times 3 \times 2 \times 1}{(2 \times 1) \times (2 \times 1)} = \frac{24}{2 \times 2} = \frac{24}{4} = 6 $$
 
 ```java
-package functionsAndMethods;
 
 import java.util.Scanner;
 
@@ -249,7 +243,6 @@ public class binomialCoefficient {
 ![Overloading using parameter](image9.png)
 
 ```java
-package functionsAndMethods;
 
 import java.util.Scanner;
 
@@ -289,7 +282,6 @@ public class functionOverloading {
 ![Overloading Using DType](image10.png)
 
 ```java
-package functionsAndMethods;
 
 public class functionOverloadingUsingDTypes {
 
@@ -333,7 +325,6 @@ public class functionOverloadingUsingDTypes {
 #### CODE
 
 ```java
-package functionsAndMethods;
 
 public class prime {
 
@@ -369,7 +360,6 @@ public class prime {
 #### CODE
 
 ```java
-package functionsAndMethods;
 
 import java.util.Scanner;
 
@@ -413,7 +403,6 @@ public class primesInRange {
 #### CODE
 
 ```java
-package functionsAndMethods;
 
 import java.util.Scanner;
 
@@ -468,7 +457,6 @@ public class binaryToDecimal {
 #### CODE
 
 ```java
-package functionsAndMethods;
 
 import java.util.Scanner;
 

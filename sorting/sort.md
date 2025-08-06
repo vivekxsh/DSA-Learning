@@ -9,7 +9,6 @@
 ![Bubble sort](image2.png)
 
 ```java
-package sorting;
 
 import java.util.Scanner;
 
@@ -50,7 +49,6 @@ public class bubbleSort {
 ![alt text](image3.png)
 
 ```java
-package sorting;
 
 import java.util.Scanner;
 
@@ -102,7 +100,6 @@ public class selectionSort {
 ![alt text](image4.png)
 
 ```java
-package sorting;
 
 import java.util.Scanner;
 
@@ -158,7 +155,6 @@ public class insertionSort {
 ![alt text](image5.png)
 
 ```java
-package sorting;
 
 import java.util.Scanner;
 import java.util.Arrays;
@@ -194,7 +190,6 @@ public class inbuiltSort {
 ![count sort](image6.png)
 
 ```java
-package sorting;
 
 import java.util.Scanner;
 

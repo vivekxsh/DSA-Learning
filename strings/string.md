@@ -3,7 +3,6 @@
 **_How to create String_**
 
 ```java
-package strings;
 
 import java.util.Scanner;
 
@@ -34,7 +33,6 @@ public class string {
 **_-> CODE_**
 
 ```java
-package strings;
 
 import java.util.Scanner;
 
@@ -107,7 +105,6 @@ public class palindrome {
 **_-> CODE_**
 
 ```java
-package strings;
 
 public class getShortestPath {
 
@@ -156,7 +153,6 @@ public class getShortestPath {
 ![substring](image2.png)
 
 ```java
-package strings;
 
 public class substr {
 
@@ -183,7 +179,6 @@ public class substr {
 **_Largest length of the string_**
 
 ```java
-package strings;
 
 import java.util.Scanner;
 
@@ -258,7 +253,6 @@ public class largestString {
 **_-> String compression problem_**
 
 ```java
-package strings;
 
 import java.util.Scanner;
 

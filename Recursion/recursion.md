@@ -17,7 +17,6 @@
 ![print num](image6.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -53,7 +52,6 @@ public class printNumberFromNto1 {
 ![call stack](image9.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -87,7 +85,6 @@ public class printNumberFrom1toN {
 ![factorial](image10.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -117,7 +114,6 @@ public class factorial {
 ![Natural sum](image11.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -150,7 +146,6 @@ public class sumOfNaturalNumber {
 ![fibonacci](image14.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -181,7 +176,6 @@ public class fibonacci {
 ![sorted](image15.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -230,7 +224,6 @@ public class arrayIsSortedOrNot {
 ![stack analysis](image17.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -277,7 +270,6 @@ public class firstOccurence {
 ![occurence](image18.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -327,7 +319,6 @@ public class lastOccurence {
 ![call stack](image21.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -362,7 +353,6 @@ public class powerN {
 ![power](image23.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -408,7 +398,6 @@ public class optimizedPowerN {
 ![tiling](image28.png)
 
 ```java
-package Recursion;
 
 public class tilingProblem {
     public static int findWays(int n) {
@@ -446,7 +435,6 @@ public class tilingProblem {
 ![Duplicate](image30.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -492,7 +480,6 @@ public class removeDuplicate {
 ![friends](image31.png)
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 
@@ -549,7 +536,6 @@ public class friendsPairing {
 ![binary string](image34.png);
 
 ```java
-package Recursion;
 
 import java.util.Scanner;
 

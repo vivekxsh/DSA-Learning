@@ -78,7 +78,6 @@ Backtracking is essentially a **depth-first search (DFS)** of all possible confi
 ---
 
 ```java
-package BackTracking;
 
 public class backtrackOnArray {
 
@@ -129,7 +128,6 @@ public class backtrackOnArray {
 ---
 
 ```java
-package BackTracking;
 
 public class findSubset {
 
@@ -201,7 +199,6 @@ null
 ---
 
 ```java
-package BackTracking;
 
 public class findPermutation {
 
@@ -254,7 +251,6 @@ cba
 ---
 
 ```java
-package BackTracking;
 
 public class nQueens {
 

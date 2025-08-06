@@ -3,7 +3,6 @@
 **_Count how many times lowercase character has been entered by the user_**
 
 ```java
-package strings.problems;
 
 import java.util.Scanner;
 
@@ -37,7 +36,6 @@ public class Question1 {
 **_Check if two strings are anagram of each other_**
 
 ```java
-package strings.problems;
 
 import java.util.Arrays;
 import java.util.Scanner;

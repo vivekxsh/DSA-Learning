@@ -7,7 +7,6 @@
 > Given a number N. The task is to generate and print all binary numbers with decimal values from 1 to N
 
 ```java
-package Queue.Questions;
 
 import java.util.Queue;
 import java.util.LinkedList;
@@ -73,7 +72,6 @@ Sample Output 2: 1 10 11 100 101
 > Sample Output 1: Q = [50, 40, 30, 20, 10, 60, 70,80, 90, 100]
 
 ```java
-package Queue.Questions;
 
 import java.util.Queue;
 import java.util.Scanner;
@@ -148,7 +146,6 @@ Enter the k value upto it has to reverse: 5
 > Sample Output 1: 3 3 4 5 5 5 6
 
 ```java
-package Queue.Questions;
 
 import java.util.ArrayList;
 

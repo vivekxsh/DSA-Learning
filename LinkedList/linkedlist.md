@@ -551,7 +551,6 @@ public class Example {
 ### 🔁 Linkedlist by the use of Collection framework:
 
 ```java
-package LinkedList;
 
 import java.util.LinkedList;
 

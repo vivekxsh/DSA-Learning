@@ -184,7 +184,6 @@ class BankAccount {
 ### Example
 
 ```java
-package OOPS;
 
 public class GetAndSet {
 
@@ -444,7 +443,6 @@ A combination of two or more types. In Java, since multiple inheritance is allow
 ![overloading](images/image7.png)
 
 ```java
-package OOPS;
 
 class Calculator {
 
@@ -626,7 +624,6 @@ class Car extends Vehicle {
 ---
 
 ```java
-package OOPS;
 
 abstract class Animal {
     void eat() {
@@ -880,7 +877,6 @@ A **package** in Java is a **namespace** that organizes a set of related classes
 Use the `package` keyword as the first line in your `.java` file:
 
 ```java
-package com.example.myapp;
 
 public class MyClass {
     public void display() {
@@ -1170,7 +1166,6 @@ public class Test {
 ![super key](images/image14.png)
 
 ```java
-package OOPS;
 
 class Animal {
     String color;

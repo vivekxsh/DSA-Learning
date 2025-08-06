@@ -33,7 +33,6 @@ A stack typically supports the following operations:
 ---
 
 ```java
-package stack;
 
 import java.util.ArrayList;
 
@@ -111,7 +110,6 @@ public class StackUsingAL {
 ### Creating Stack using LinkedList
 
 ```java
-package stack;
 
 public class StackUsingLL {
 
@@ -189,7 +187,6 @@ public class StackUsingLL {
 ### Stack implementation from Java Collection framework
 
 ```java
-package stack;
 
 import java.util.Stack;
 
