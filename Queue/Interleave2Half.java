@@ -15,7 +15,7 @@ public class Interleave2Half {
             firstHalf.add(q.remove());
         }
 
-        while (!q.isEmpty()) {
+        while (!firstHalf.isEmpty()) {
             q.add(firstHalf.remove());
             q.add(q.remove());
         }
