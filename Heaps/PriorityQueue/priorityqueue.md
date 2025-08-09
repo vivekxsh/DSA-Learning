@@ -680,3 +680,211 @@ public class InsertDataIntoMaxHeap {
 ```
 
 ---
+
+## 📚 What is Heap Sort?
+
+**Heap Sort** is a **comparison-based** sorting algorithm that uses a **binary heap** data structure.
+
+![heap sort](images/image11.png)
+
+---
+
+It works in two main steps:
+
+1. **Build a max heap** from the input array.
+2. **Extract the maximum element** one by one from the heap and put it at the end of the array.
+
+---
+
+## 🔧 Binary Heap (Max Heap)
+
+A **Max Heap** is a complete binary tree where the value of each node is **greater than or equal to its children**.
+
+For an array-based heap:
+
+- **Parent(i) = (i - 1) / 2**
+- **Left Child(i) = 2 \* i + 1**
+- **Right Child(i) = 2 \* i + 2**
+
+---
+
+## ⚙️ Heap Sort Algorithm Steps
+
+1. **Build a max heap** from the unsorted array.
+2. For `i = n-1` down to `1`:
+   - Swap `arr[0]` (max element) with `arr[i]`.
+   - Reduce the heap size by 1.
+   - Heapify the root (index 0) to maintain the heap property.
+
+---
+
+## 🔁 Example
+
+Given array: `[4, 10, 3, 5, 1]`
+
+1. Build Max Heap → `[10, 5, 3, 4, 1]`
+2. Swap max with last → `[1, 5, 3, 4, 10]`
+3. Heapify → `[5, 4, 3, 1, 10]`
+4. Continue...
+
+Final sorted array: `[1, 3, 4, 5, 10]`
+
+---
+
+## ✅ Java Code for Heap Sort
+
+```java
+public class HeapSort {
+
+    // Function to sort an array using heap sort
+    public void heapSort(int arr[]) {
+        int n = arr.length;
+
+        // Step 1: Build Max Heap
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
+        }
+
+        // Step 2: Extract elements from heap one by one
+        for (int i = n - 1; i >= 0; i--) {
+            // Move current root to end
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            // Call max heapify on the reduced heap
+            heapify(arr, i, 0);
+        }
+    }
+
+    // To heapify a subtree rooted at index i in array of size n
+    void heapify(int arr[], int n, int i) {
+        int largest = i; // Initialize largest as root
+        int left = 2 * i + 1; // left = 2*i + 1
+        int right = 2 * i + 2; // right = 2*i + 2
+
+        // If left child is larger than root
+        if (left < n && arr[left] > arr[largest])
+            largest = left;
+
+        // If right child is larger than largest so far
+        if (right < n && arr[right] > arr[largest])
+            largest = right;
+
+        // If largest is not root
+        if (largest != i) {
+            int swap = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = swap;
+
+            // Recursively heapify the affected sub-tree
+            heapify(arr, n, largest);
+        }
+    }
+
+    // Utility method to print array
+    public static void printArray(int arr[]) {
+        for (int val : arr)
+            System.out.print(val + " ");
+        System.out.println();
+    }
+
+    // Main method for testing
+    public static void main(String args[]) {
+        int arr[] = {12, 11, 13, 5, 6, 7};
+        HeapSort ob = new HeapSort();
+
+        System.out.println("Original array:");
+        printArray(arr);
+
+        ob.heapSort(arr);
+
+        System.out.println("Sorted array:");
+        printArray(arr);
+    }
+}
+```
+
+---
+
+## ⏱️ Time & Space Complexity
+
+| Step               | Time Complexity |
+| ------------------ | --------------- |
+| Build Max Heap     | O(n)            |
+| Heapify (per node) | O(log n)        |
+| Heap Sort (total)  | O(n log n)      |
+
+✅ **Worst, Average, Best Case:** `O(n log n)`  
+✅ **Space Complexity:** `O(1)` (in-place sorting)  
+✅ **Not Stable**
+
+---
+
+## 📌 When to Use Heap Sort
+
+- When you need **guaranteed O(n log n)** performance.
+- When **memory is limited** (since it’s in-place).
+- When **stability** is not required.
+
+---
+
+### Heap sort by using Min-Heap
+
+```java
+package Heaps.PriorityQueue;
+
+public class HeapSortMinHeap {
+
+    public static void heapify(int arr[], int i, int size) {
+        int left = i * 2 + 1;
+        int right = i * 2 + 2;
+        int minIdx = i;
+
+        if (left < size && arr[left] < arr[minIdx]) {
+            minIdx = left;
+        }
+        if (right < size && arr[right] < arr[minIdx]) {
+            minIdx = right;
+        }
+
+        if (minIdx != i) {
+            int temp = arr[i];
+            arr[i] = arr[minIdx];
+            arr[minIdx] = temp;
+
+            heapify(arr, minIdx, size);
+        }
+    }
+
+    public static void heapSort(int arr[]) {
+
+        // build MinHeap
+        int n = arr.length;
+        for (int i = n / 2; i >= 0; i--) {
+            heapify(arr, i, n);
+        }
+
+        // push smallest at end
+        for (int i = n - 1; i > 0; i--) {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            heapify(arr, 0, i);
+        }
+    }
+
+    public static void main(String[] args) {
+        int arr[] = { 1, 2, 5, 4, 3 };
+
+        heapSort(arr);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+```
+
+---
