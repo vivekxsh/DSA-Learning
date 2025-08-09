@@ -38,6 +38,7 @@ public class Question1 {
         int k = sc.nextInt();
 
         System.out.println(kthLargest(arr, k));
+        sc.close();
 
     }
 }
