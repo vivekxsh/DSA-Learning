@@ -133,3 +133,269 @@ public class IterationOnHashMap {
     }
 }
 ```
+
+---
+
+### HashMap Implementation
+
+Implementing a **HashMap from scratch in Java** involves:
+
+1. Defining an internal `Entry` class to hold key-value pairs.
+2. Creating an array of `Entry` objects to act as buckets.
+3. Implementing `put`, `get`, `remove`, and resizing logic.
+4. Handling collisions using **chaining** (linked lists).
+
+---
+
+![implementation](images/image3.png)
+
+---
+
+![implementation](images/image4.png)
+
+---
+
+![implementation](images/image5.png)
+
+---
+
+### ReHashing in HashMap
+
+**Rehashing** is the process of resizing the internal array (bucket array) when the current one becomes too full, typically governed by the **load factor**. During rehashing:
+
+1. A new, larger array is created (usually 2× the size).
+2. All existing entries are **re-inserted** (rehashed) into the new array because the **index calculation depends on the array size**.
+
+---
+
+### ✅ Why is rehashing necessary?
+
+- To maintain **O(1)** average time complexity for `put` and `get`.
+- Prevent long chains (linked lists or trees) due to too many collisions.
+- Triggered when `size / capacity > loadFactor`.
+
+---
+
+![rehashing](images/image6.png)
+
+---
+
+### 🔗 `LinkedHashMap` in Java – Explained
+
+The `LinkedHashMap` is a subclass of `HashMap` that **maintains insertion order** or **access order** of its entries — unlike `HashMap`, which does **not guarantee order**.
+
+![linkedhashmap](images/image7.png)
+
+---
+
+### ✅ Key Features of `LinkedHashMap`
+
+| Feature                  | Description                                                                        |
+| ------------------------ | ---------------------------------------------------------------------------------- |
+| **Ordering**             | Maintains a **doubly-linked list** of entries in **insertion** or **access** order |
+| **Performance**          | Similar to `HashMap` — O(1) for `put`, `get`, `remove`                             |
+| **Null keys/values**     | Allows one null key and multiple null values (same as `HashMap`)                   |
+| **Load factor/capacity** | Same logic as `HashMap`                                                            |
+
+---
+
+### 📦 Internal Structure
+
+```text
+LinkedHashMap = HashMap + Doubly Linked List
+```
+
+Each entry maintains:
+
+- `before` and `after` point to previous and next entries in insertion/access order.
+- The `LinkedHashMap` maintains `head` and `tail` of the linked list.
+
+---
+
+### 🧠 Insertion vs Access Order
+
+```java
+// Insertion-order LinkedHashMap (default)
+Map<String, Integer> map = new LinkedHashMap<>();
+
+// Access-order LinkedHashMap
+Map<String, Integer> map = new LinkedHashMap<>(16, 0.75f, true);
+```
+
+| Mode          | Behavior                                                                        |
+| ------------- | ------------------------------------------------------------------------------- |
+| **Insertion** | Keeps entries in the order they were added.                                     |
+| **Access**    | Reorders entries so the most recently accessed entry is at the end of the list. |
+
+---
+
+### 🧪 Example: Insertion Order
+
+```java
+Map<String, Integer> map = new LinkedHashMap<>();
+
+map.put("A", 1);
+map.put("B", 2);
+map.put("C", 3);
+
+System.out.println(map); // Output: {A=1, B=2, C=3}
+```
+
+---
+
+### 🧪 Example: Access Order
+
+```java
+Map<String, Integer> map = new LinkedHashMap<>(16, 0.75f, true);
+
+map.put("A", 1);
+map.put("B", 2);
+map.put("C", 3);
+
+map.get("A"); // Access A
+System.out.println(map); // Output: {B=2, C=3, A=1}
+```
+
+---
+
+### 🧹 LRU Cache Behavior (Eviction)
+
+`LinkedHashMap` can be used to implement a simple **LRU cache** by overriding the `removeEldestEntry()` method:
+
+```java
+LinkedHashMap<Integer, String> lruCache = new LinkedHashMap<>(16, 0.75f, true) {
+    protected boolean removeEldestEntry(Map.Entry<Integer, String> eldest) {
+        return size() > 5; // Max 5 entries
+    }
+};
+```
+
+When a new item is added and the size exceeds 5, the **least recently accessed** entry is evicted automatically.
+
+---
+
+```java
+
+import java.util.LinkedHashMap;
+
+public class LinkedHashmapStructure {
+    public static void main(String[] args) {
+
+        // LinkedHashMap is mainly used to keep the insertion order
+        LinkedHashMap<String, Integer> lhm = new LinkedHashMap<>();
+
+        lhm.put("India", 100);
+        lhm.put("China", 150);
+        lhm.put("US", 50);
+
+        System.out.println(lhm);
+    }
+}
+```
+
+---
+
+### ✅ When to Use `LinkedHashMap`?
+
+- When you need predictable iteration order (insertion or access).
+- When building an LRU cache.
+- When extending `HashMap` with ordered behavior is required.
+
+---
+
+### ❌ When Not to Use It
+
+- If you don’t care about ordering → use `HashMap` (less overhead).
+- If you want **sorted order** → use `TreeMap`.
+
+---
+
+## 🌳 What is a `TreeMap`?
+
+A **`TreeMap`** is a special kind of map (key-value store) in Java that keeps the **keys in sorted order** automatically.
+
+Think of it like a dictionary where the words (keys) are always sorted A → Z.
+
+---
+
+## ✅ Example
+
+```java
+
+import java.util.TreeMap;
+
+public class TreeMapStructure {
+
+    public static void main(String[] args) {
+
+        // it keeps the keys in the sorted order and the internal data used is ->
+        // Red-Black Tree
+        TreeMap<String, Integer> treemap = new TreeMap<>();
+
+        treemap.put("India", 100);
+        treemap.put("China", 150);
+        treemap.put("US", 50);
+
+        System.out.println(treemap);
+    }
+
+}
+
+```
+
+### 🖨️ Output:
+
+```
+{China=150, India=100, US=50}
+```
+
+> Notice how the keys are **sorted alphabetically**, even though we added them in a different order.
+
+---
+
+## 🔍 Key Features of `TreeMap`
+
+| Feature                        | Description                                                            |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| 🔢 **Sorted keys**             | Automatically keeps keys in **ascending order**                        |
+| 🧠 **Based on Red-Black Tree** | Uses a self-balancing binary search tree internally (not a hash table) |
+| ❌ **No null keys**            | Cannot store `null` as a key (unlike `HashMap`)                        |
+| ✅ **Null values allowed**     | You _can_ use null values                                              |
+| 🕐 **Time complexity**         | O(log n) for `put`, `get`, `remove` (slower than HashMap, but sorted)  |
+
+---
+
+## ✅ Common Methods
+
+```java
+map.put("key", value);   // Add key-value
+map.get("key");          // Get value by key
+map.remove("key");       // Remove entry
+map.firstKey();          // Smallest key
+map.lastKey();           // Largest key
+map.headMap("China");   // All keys < "orange"
+map.tailMap("India");   // All keys ≥ "banana"
+```
+
+---
+
+## 🧠 How is it different from HashMap?
+
+| Feature      | `HashMap`          | `TreeMap`               |
+| ------------ | ------------------ | ----------------------- |
+| 🔢 Ordering  | No order (random)  | Keys always sorted      |
+| ⚡ Speed     | O(1) average       | O(log n)                |
+| 🧱 Structure | Uses hash table    | Uses red-black tree     |
+| ❓ Null keys | 1 null key allowed | ❌ No null keys allowed |
+
+---
+
+## ✅ When to Use `TreeMap`
+
+Use `TreeMap` when:
+
+- You need to iterate over keys in **sorted order**.
+- You need **range queries**, like "get all keys between X and Y".
+- You want to avoid using `Collections.sort()` manually on keys.
+
+---
