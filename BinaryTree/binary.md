@@ -725,7 +725,6 @@ public class HeightOfTree {
 ---
 
 ```java
-package BinaryTree;
 
 public class CountOfNodes {
 
