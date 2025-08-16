@@ -939,3 +939,169 @@ public class Diameter {
 ```
 
 ---
+
+### Diameter of a Tree (Approach 2) -> Optimized
+
+![diameter](images/image11.png)
+
+---
+
+```java
+public class Diameter {
+    static class Node {
+        int data;
+        Node left, right;
+
+        Node(int data) {
+            this.data = data;
+            this.left = this.right = null;
+        }
+    }
+
+    public static int height(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int lh = height(node.left);
+        int rh = height(node.right);
+
+        return Math.max(lh, rh) + 1;
+    }
+
+    public static int diam2(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int lDiam = diam2(node.left);
+        int rDiam = diam2(node.right);
+
+        int lh = height(node.left);
+        int rh = height(node.right);
+
+        return Math.max(lh + rh + 1, Math.max(lDiam, rDiam));
+    }
+
+    // Approach 2
+
+    static class Info {
+        int diam;
+        int ht;
+
+        Info(int diam, int ht) {
+            this.diam = diam;
+            this.ht = ht;
+        }
+    }
+
+    public static Info diam(Node root) { // O(n)
+        if (root == null) {
+            return new Info(0, 0);
+        }
+
+        Info ldiam = diam(root.left);
+        Info rdiam = diam(root.right);
+
+        int diameter = Math.max(Math.max(ldiam.diam, rdiam.diam), ldiam.ht + rdiam.ht + 1);
+        int ht = Math.max(ldiam.ht, rdiam.ht) + 1;
+
+        return new Info(diameter, ht);
+
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+
+        System.out.println(diam2(root));
+
+        System.out.println(diam(root).diam);
+    }
+}
+```
+
+---
+
+### Subtree of a tree
+
+![subtree](images/image12.png)
+
+---
+
+> 4 Conditions to check whether the SubTree is a part of Tree
+
+![subtree](images/image13.png)
+
+---
+
+```java
+
+public class SunTreeOfTree {
+
+    // Main Tree
+    static class Node {
+        int data;
+        Node left;
+        Node right;
+
+        Node(int data) {
+            this.data = data;
+            this.left = this.right = null;
+        }
+    }
+
+    // subtree
+    public static boolean isSubTree(Node root, Node subRoot) {
+        if (root == null) {
+            return false;
+        }
+
+        if (isSame(root, subRoot)) {
+            return true;
+        }
+
+        return isSubTree(root.left, subRoot) || isSubTree(root.right, subRoot);
+    }
+
+    public static boolean isSame(Node root, Node subRoot) {
+        if (root == null && subRoot == null) {
+            return true;
+        }
+        if (root == null || subRoot == null) {
+            return false;
+        }
+
+        if (root.data != subRoot.data) {
+            return false;
+        }
+
+        return isSame(root.left, subRoot.left) && isSame(root.right, subRoot.right);
+    }
+
+    public static void main(String[] args) {
+
+        // main tree
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+
+        // suntree
+        Node subtree = new Node(2);
+        subtree.left = new Node(4);
+        subtree.right = new Node(5);
+
+        System.out.println(isSubTree(root, subtree));
+
+    }
+}
+```
