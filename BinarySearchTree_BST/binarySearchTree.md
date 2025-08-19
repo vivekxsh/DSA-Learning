@@ -21,7 +21,6 @@ A **BST** is a special kind of **binary tree** with the following properties:
 > Build BST
 
 ```java
-package BinarySearchTree_BST;
 
 class Node {
     int data;
@@ -389,6 +388,175 @@ public class MinimumInBST {
         inOrder(root);
         System.out.println();
         System.out.println(findMinimum(root));
+    }
+
+}
+```
+
+---
+
+### Find Maximum in BST
+
+```java
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        this.left = this.right = null;
+    }
+}
+
+public class MaximumInBST {
+
+    static Node insert(Node node, int data) {
+        if (node == null) {
+            return new Node(data);
+        }
+
+        if (node.data == data) {
+            return node;
+        }
+
+        if (data < node.data) {
+            node.left = insert(node.left, data);
+        }
+
+        else {
+            node.right = insert(node.right, data);
+        }
+
+        return node;
+    }
+
+    static void inOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        inOrder(node.left);
+        System.out.print(node.data + " ");
+        inOrder(node.right);
+    }
+
+    static int findMaximum(Node node) {
+
+        if (node == null) {
+            return -1;
+        }
+
+        Node current = node;
+
+        while (current.right != null) {
+            current = current.right;
+        }
+
+        return current.data;
+    }
+
+    public static void main(String[] args) {
+
+        Node root = null;
+
+        root = insert(root, 50);
+        root = insert(root, 30);
+        root = insert(root, 20);
+        root = insert(root, 40);
+        root = insert(root, 70);
+        root = insert(root, 60);
+        root = insert(root, 80);
+
+        inOrder(root);
+
+        System.out.println();
+        System.out.println("Maximum Element in tree is : " + findMaximum(root));
+    }
+
+}
+```
+
+---
+
+### Floor in Binary Search Tree(BST)
+
+> Given a Binary Search Tree and a number x, the task is to find the floor of x in the given BST, where floor means the greatest value node of the BST which is smaller than or equal to x. if x is smaller than the smallest node of BST then return -1.
+
+```java
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        this.left = this.right = null;
+    }
+}
+
+public class FloorInBST {
+
+    static Node insert(Node node, int data) {
+        if (node == null) {
+            return new Node(data);
+        }
+
+        if (node.data == data) {
+            return node;
+        }
+
+        if (data < node.data) {
+            node.left = insert(node.left, data);
+        } else {
+            node.right = insert(node.right, data);
+        }
+
+        return node;
+    }
+
+    static void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.left);
+            System.out.print(node.data + " ");
+            inOrder(node.right);
+        }
+    }
+
+    static int floorValue(Node node, int x) {
+        if (node == null) {
+            return -1;
+        }
+
+        if (node.data == x) {
+            return node.data;
+        }
+
+        if (node.data > x) {
+            return floorValue(node.left, x);
+        }
+
+        int floorValue = floorValue(node.right, x);
+
+        return (floorValue <= x && floorValue != -1) ? floorValue : node.data;
+    }
+
+    public static void main(String[] args) {
+        Node root = null;
+
+        root = insert(root, 50);
+        root = insert(root, 30);
+        root = insert(root, 20);
+        root = insert(root, 40);
+        root = insert(root, 70);
+        root = insert(root, 60);
+        root = insert(root, 80);
+
+        inOrder(root);
+
+        System.out.println();
+        System.out.println("Floor value: " + floorValue(root, 70));
+
     }
 
 }
