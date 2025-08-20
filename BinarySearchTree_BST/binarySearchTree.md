@@ -69,6 +69,108 @@ public class BuildBST {
 
 ---
 
+> Build BST With Duplicate data
+
+```java
+package BinarySearchTree_BST;
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        this.left = this.right = null;
+    }
+}
+
+class Node2 {
+    int data;
+    int count;
+    Node2 left;
+    Node2 right;
+
+    Node2(int data) {
+        this.data = data;
+        this.count = 1;
+        this.left = this.right = null;
+    }
+}
+
+public class BuildBSTWithDuplicate {
+
+    // ********* Approach 1 **************
+    // static Node insert(Node node, int data) {
+    // if (node == null) {
+    // return new Node(data);
+    // }
+
+    // if (node.data <= data) {
+    // node.right = insert(node.right, data);
+    // } else if (node.data > data) {
+    // node.left = insert(node.left, data);
+    // }
+
+    // return node;
+    // }
+
+    // static void inorder(Node node) {
+    // if (node == null) {
+    // return;
+    // }
+
+    // inorder(node.left);
+    // System.out.print(node.data + " ");
+    // inorder(node.right);
+    // }
+
+    // ********* Approach 2 ***********
+    static Node2 insertWithCount(Node2 node, int data) {
+        if (node == null) {
+            return new Node2(data);
+        }
+
+        if (node.data == data) {
+            node.count++;
+            return node;
+        }
+
+        if (node.data < data) {
+            node.right = insertWithCount(node.right, data);
+        } else {
+            node.left = insertWithCount(node.left, data);
+        }
+
+        return node;
+    }
+
+    static void inOrder(Node2 node) {
+        if (node == null) {
+            return;
+        }
+
+        inOrder(node.left);
+        System.out.print(node.data + " (" + node.count + ") " + " ");
+        inOrder(node.right);
+    }
+
+    public static void main(String[] args) {
+
+        int values[] = { 12, 10, 20, 9, 11, 10, 12, 12 };
+        Node2 root = null;
+
+        for (int i = 0; i < values.length; i++) {
+            root = insertWithCount(root, values[i]);
+        }
+
+        inOrder(root);
+    }
+
+}
+```
+
+---
+
 ## Why use a BST?
 
 - **Fast searching:** Average-case search time is **O(log n)**.
@@ -681,6 +783,87 @@ public class FloorInBST {
         System.out.println();
         System.out.println("Floor value: " + floorValue(root, 70));
 
+    }
+
+}
+```
+
+---
+
+### Print the values in the range
+
+![print in range](images/image5.png)
+
+---
+
+```java
+package BinarySearchTree_BST;
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        this.left = this.right = null;
+    }
+}
+
+public class PrintInRange {
+
+    static Node insert(Node node, int data) {
+        if (node == null) {
+            return new Node(data);
+        }
+
+        if (node.data == data) {
+            return node;
+        }
+
+        if (node.data < data) {
+            node.right = insert(node.right, data);
+        } else {
+            node.left = insert(node.left, data);
+        }
+
+        return node;
+    }
+
+    static void inorder(Node node) {
+        if (node == null) {
+            return;
+        }
+        inorder(node.left);
+        System.out.print(node.data + " ");
+        inorder(node.right);
+    }
+
+    static void printInRange(Node node, int k1, int k2) {
+
+        if (node == null) {
+            return;
+        }
+
+        printInRange(node.left, k1, k2);
+        if (node.data >= k1 && node.data <= k2) {
+            System.out.print(node.data + " ");
+        }
+        printInRange(node.right, k1, k2);
+    }
+
+    public static void main(String[] args) {
+        Node root = null;
+        int values[] = { 8, 5, 10, 3, 6, 11, 1, 4, 14 };
+
+        for (int i = 0; i < values.length; i++) {
+            root = insert(root, values[i]);
+        }
+        inorder(root);
+        System.out.println();
+        // print in range
+        int k1 = 5, k2 = 12;
+        System.out.println("Printing in range between " + k1 + " " + k2);
+        printInRange(root, k1, k2);
     }
 
 }
