@@ -62,16 +62,22 @@ public class SearchingInBST {
 
         Node root = null;
 
-        root = insert(root, 50);
-        root = insert(root, 30);
-        root = insert(root, 20);
-        root = insert(root, 40);
-        root = insert(root, 70);
-        root = insert(root, 60);
-        root = insert(root, 80);
+        // root = insert(root, 50);
+        // root = insert(root, 30);
+        // root = insert(root, 20);
+        // root = insert(root, 40);
+        // root = insert(root, 70);
+        // root = insert(root, 60);
+        // root = insert(root, 80);
+
+        int[] values = { 50, 30, 20, 40, 70, 60, 80 };
+        for (int i = 0; i < values.length; i++) {
+            root = insert(root, values[i]);
+        }
 
         inOrder(root);
 
+        System.out.println();
         System.out.println("Searching in BST.");
         if (search(root, 20)) {
             System.out.println("Key is found.");
