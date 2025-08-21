@@ -72,7 +72,6 @@ public class BuildBST {
 > Build BST With Duplicate data
 
 ```java
-package BinarySearchTree_BST;
 
 class Node {
     int data;
@@ -797,7 +796,6 @@ public class FloorInBST {
 ---
 
 ```java
-package BinarySearchTree_BST;
 
 class Node {
     int data;
@@ -866,5 +864,297 @@ public class PrintInRange {
         printInRange(root, k1, k2);
     }
 
+}
+```
+
+---
+
+### Print Elements from root to leaf
+
+![root to leaf](images/image6.png)
+
+---
+
+```java
+
+import java.util.ArrayList;
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        this.left = this.right = null;
+    }
+}
+
+public class PrintRoot2Leaf {
+
+    static Node insert(Node node, int data) {
+        if (node == null) {
+            return new Node(data);
+
+        }
+
+        if (node.data == data) {
+            return node;
+        }
+
+        if (data > node.data) {
+            node.right = insert(node.right, data);
+        } else {
+            node.left = insert(node.left, data);
+        }
+
+        return node;
+    }
+
+    static void inorder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        inorder(node.left);
+        System.out.print(node.data + " ");
+        inorder(node.right);
+    }
+
+    static void printRootToLeaf(Node node, ArrayList<Integer> path) {
+
+        if (node == null) {
+            return;
+        }
+
+        path.add(node.data);
+
+        if (node.left == null && node.right == null) {
+            printPath(path);
+        }
+
+        printRootToLeaf(node.left, path);
+        printRootToLeaf(node.right, path);
+
+        path.remove(path.size() - 1);
+    }
+
+    static void printPath(ArrayList<Integer> path) {
+        for (int i = 0; i < path.size(); i++) {
+            System.out.print(path.get(i) + "->");
+        }
+        System.out.println("Null");
+    }
+
+    public static void main(String[] args) {
+
+        int values[] = { 8, 5, 3, 6, 10, 11, 14 };
+        Node root = null;
+        for (int i = 0; i < values.length; i++) {
+            root = insert(root, values[i]);
+        }
+
+        inorder(root);
+
+        System.out.println();
+        printRootToLeaf(root, new ArrayList<>());
+
+    }
+}
+```
+
+---
+
+### Validate Binary Search Tree
+
+**Validating a Binary Search Tree (BST) means checking if the tree satisfies the BST property:**
+
+```
+For every node:
+> All values in its left subtree are less than the node's value.
+> All values in its right subtree are greater than the node's value.
+
+```
+
+---
+
+![valid bst](images/image7.png)
+
+---
+
+```java
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        this.left = this.right = null;
+    }
+}
+
+public class ValidBST {
+
+    static Node insert(Node node, int data) {
+
+        if (node == null) {
+            return new Node(data);
+        }
+        if (node.data == data) {
+            return node;
+        }
+
+        if (data > node.data) {
+            node.right = insert(node.right, data);
+        } else {
+            node.left = insert(node.left, data);
+        }
+
+        return node;
+    }
+
+    static void inorder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        inorder(node.left);
+        System.out.print(node.data + " ");
+        inorder(node.right);
+
+    }
+
+    static boolean validateBST(Node node) {
+
+        return validateBST(node, Long.MIN_VALUE, Long.MAX_VALUE);
+
+    }
+
+    static boolean validateBST(Node node, long min, long max) {
+
+        if (node == null) {
+            return true;
+        }
+
+        if (node.data <= min || node.data >= max) {
+            return false;
+        }
+
+        return validateBST(node.left, min, node.data) && validateBST(node.right, node.data, max);
+    }
+
+    public static void main(String[] args) {
+
+        int values[] = { 8, 5, 3, 6, 10, 11, 14 };
+        Node root = null;
+
+        for (int i = 0; i < values.length; i++) {
+            root = insert(root, values[i]);
+        }
+
+        inorder(root);
+
+        System.out.println();
+
+        if (validateBST(root)) {
+            System.out.println("Bianry search tree is valid.");
+        } else {
+            System.out.println("Binary search tree is not valid.");
+        }
+
+    }
+}
+```
+
+---
+
+### Mirror a Binary Search Tree
+
+![mirror](images/image8.png)
+
+---
+
+```java
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        this.left = this.right = null;
+    }
+}
+
+public class MirrorBST {
+
+    static Node insert(Node node, int data) {
+        if (node == null) {
+            return new Node(data);
+        }
+
+        if (node.data == data) {
+            return node;
+        }
+
+        if (data > node.data) {
+            node.right = insert(node.right, data);
+        } else {
+            node.left = insert(node.left, data);
+        }
+
+        return node;
+    }
+
+    // function to mirror tree
+    static void mirror(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        Node temp = node.left;
+        node.left = node.right;
+        node.right = temp;
+
+        mirror(node.left);
+        mirror(node.right);
+
+    }
+
+    static void inorder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        inorder(node.left);
+        System.out.print(node.data + " ");
+        inorder(node.right);
+    }
+
+    static void preorder(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.data + " ");
+        preorder(node.left);
+        preorder(node.right);
+    }
+
+    public static void main(String args[]) {
+
+        int values[] = { 8, 5, 10, 3, 6, 11 };
+        Node root = null;
+
+        for (int i = 0; i < values.length; i++) {
+            root = insert(root, values[i]);
+        }
+
+        preorder(root);
+        System.out.println();
+        System.out.println("After Mirroring the tree.");
+        mirror(root);
+        preorder(root);
+
+    }
 }
 ```
