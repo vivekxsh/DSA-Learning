@@ -1407,3 +1407,209 @@ public class ConvertBSTToBalancedBST {
 - **`balanceBST`** is the main method combining these steps.
 
 ---
+
+### Find the Largest Binary search tree from a Binary tree
+
+![bst](images/image12.png)
+
+---
+
+![bst](images/image13.png)
+
+---
+
+```java
+
+public class LargestBstInBT {
+
+    static class Node {
+        int data;
+        Node left, right;
+
+        Node(int data) {
+            this.data = data;
+            this.left = this.right = null;
+        }
+    }
+
+    static class Info {
+        boolean isBST;
+        int size;
+        int min;
+        int max;
+
+        public Info(boolean isBST, int size, int min, int max) {
+            this.isBST = isBST;
+            this.size = size;
+            this.min = min;
+            this.max = max;
+        }
+    }
+
+    public static int maxBST = 0;
+
+    static Info largestBST(Node root) {
+
+        if (root == null) {
+            return new Info(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
+        }
+
+        Info leftInfo = largestBST(root.left);
+        Info rightInfo = largestBST(root.right);
+
+        int size = leftInfo.size + rightInfo.size + 1;
+        int min = Math.min(root.data, Math.min(leftInfo.min, rightInfo.min));
+        int max = Math.max(root.data, Math.max(leftInfo.max, rightInfo.max));
+
+        if (root.data <= leftInfo.max || root.data >= rightInfo.min) {
+            return new Info(false, size, min, max);
+        }
+        if (leftInfo.isBST && rightInfo.isBST) {
+            maxBST = Math.max(size, maxBST);
+            return new Info(true, size, min, max);
+        }
+
+        return new Info(false, size, min, max);
+    }
+
+    public static void main(String[] args) {
+
+        Node root = new Node(50);
+        root.left = new Node(30);
+        root.left.left = new Node(5);
+        root.left.right = new Node(20);
+
+        root.right = new Node(60);
+        root.right.right = new Node(70);
+        root.right.right.right = new Node(80);
+
+        root.right.left = new Node(45);
+        root.right.right.left = new Node(65);
+
+        Info info = largestBST(root);
+
+        System.out.println("Largest BST size : " + maxBST);
+        System.out.println("Total nodes in BST : " + info.size);
+    }
+}
+```
+
+---
+
+### Merge Two BST's
+
+![merge](images/image14.png)
+
+---
+
+![merge](images/image15.png)
+
+---
+
+To merge two **Binary Search Trees (BSTs)** in Java, there are a few common approaches. Here's a concise breakdown of the most efficient method:
+
+### ✅ Efficient Approach (Optimal):
+
+1. **Inorder Traversal** of both BSTs → Gives two sorted arrays.
+2. **Merge** the two sorted arrays.
+3. **Build a balanced BST** from the merged array.
+
+---
+
+### 🔧 Step-by-Step Code in Java:
+
+```java
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class MergeBST {
+    static class Node {
+        int data;
+        Node left, right;
+
+        Node(int data) {
+            this.data = data;
+            this.left = this.right = null;
+        }
+    }
+
+    static void inorder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        inorder(node.left);
+        System.out.print(node.data + " ");
+        inorder(node.right);
+    }
+
+    static void preorder(Node node) {
+
+        if (node == null) {
+            return;
+        }
+
+        System.out.print(node.data + " ");
+        preorder(node.left);
+        preorder(node.right);
+    }
+
+    static void inorder(Node node, ArrayList<Integer> nodes) {
+
+        if (node == null) {
+            return;
+        }
+
+        inorder(node.left, nodes);
+        nodes.add(node.data);
+        inorder(node.right, nodes);
+    }
+
+    static Node mergeBst(ArrayList<Integer> arr, int si, int ei) {
+        if (si > ei) {
+            return null;
+        }
+
+        int mid = si + (ei - si) / 2;
+        Node root = new Node(arr.get(mid));
+
+        root.left = mergeBst(arr, si, mid - 1);
+        root.right = mergeBst(arr, mid + 1, ei);
+
+        return root;
+    }
+
+    public static void main(String[] args) {
+
+        Node bst1 = new Node(2);
+        bst1.left = new Node(1);
+        bst1.right = new Node(4);
+
+        Node bst2 = new Node(9);
+        bst2.left = new Node(3);
+        bst2.right = new Node(12);
+
+        inorder(bst1);
+        System.out.println();
+        inorder(bst2);
+
+        System.out.println();
+
+        System.out.println("Mergining two bst's.");
+        ArrayList<Integer> nodes = new ArrayList<>();
+
+        inorder(bst1, nodes);
+        inorder(bst2, nodes);
+
+        Collections.sort(nodes);
+        System.out.println(nodes);
+
+        Node root = mergeBst(nodes, 0, nodes.size() - 1);
+
+        preorder(root);
+
+    }
+}
+
+```
