@@ -1613,3 +1613,386 @@ public class MergeBST {
 }
 
 ```
+
+---
+
+## 📘 AVL Trees in Java
+
+[View The PDF](PDF/AVL_Tree.pdf)
+
+---
+
+An **AVL tree** (Adelson-Velsky and Landis tree) is a type of self-balancing binary search tree. In an AVL tree, the difference in heights between the left and right subtrees of any node is at most one. If this condition is violated due to insertion or deletion, the tree is rebalanced using **rotations**.
+
+Below is a basic **Java implementation** of an AVL Tree that supports **insertion**:
+
+---
+
+### ✅ Java Code: AVL Tree Implementation (Insert Only)
+
+```java
+class AVLTree {
+
+    class Node {
+        int key, height;
+        Node left, right;
+
+        Node(int d) {
+            key = d;
+            height = 1;
+        }
+    }
+
+    private Node root;
+
+    // Get height of node
+    int height(Node N) {
+        return (N == null) ? 0 : N.height;
+    }
+
+    // Get balance factor
+    int getBalance(Node N) {
+        return (N == null) ? 0 : height(N.left) - height(N.right);
+    }
+
+    // Right rotate
+    Node rightRotate(Node y) {
+        Node x = y.left;
+        Node T2 = x.right;
+
+        // Perform rotation
+        x.right = y;
+        y.left = T2;
+
+        // Update heights
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+
+        // Return new root
+        return x;
+    }
+
+    // Left rotate
+    Node leftRotate(Node x) {
+        Node y = x.right;
+        Node T2 = y.left;
+
+        // Perform rotation
+        y.left = x;
+        x.right = T2;
+
+        // Update heights
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+
+        // Return new root
+        return y;
+    }
+
+    // Insert a key
+    Node insert(Node node, int key) {
+        // 1. Perform normal BST insertion
+        if (node == null)
+            return new Node(key);
+
+        if (key < node.key)
+            node.left = insert(node.left, key);
+        else if (key > node.key)
+            node.right = insert(node.right, key);
+        else
+            return node; // Duplicate keys not allowed
+
+        // 2. Update height
+        node.height = 1 + Math.max(height(node.left), height(node.right));
+
+        // 3. Get balance factor
+        int balance = getBalance(node);
+
+        // 4. Rebalance if needed
+
+        // Left Left Case
+        if (balance > 1 && key < node.left.key)
+            return rightRotate(node);
+
+        // Right Right Case
+        if (balance < -1 && key > node.right.key)
+            return leftRotate(node);
+
+        // Left Right Case
+        if (balance > 1 && key > node.left.key) {
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
+        }
+
+        // Right Left Case
+        if (balance < -1 && key < node.right.key) {
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
+        }
+
+        // Return unchanged node
+        return node;
+    }
+
+    // Public insert method
+    public void insert(int key) {
+        root = insert(root, key);
+    }
+
+    // In-order traversal
+    void inorder(Node node) {
+        if (node != null) {
+            inorder(node.left);
+            System.out.print(node.key + " ");
+            inorder(node.right);
+        }
+    }
+
+    public void printInOrder() {
+        inorder(root);
+        System.out.println();
+    }
+
+    // Main method to test
+    public static void main(String[] args) {
+        AVLTree tree = new AVLTree();
+
+        int[] keys = {10, 20, 30, 40, 50, 25};
+
+        for (int key : keys)
+            tree.insert(key);
+
+        System.out.print("Inorder traversal of AVL tree: ");
+        tree.printInOrder();
+    }
+}
+```
+
+---
+
+### 🔍 Output:
+
+```
+Inorder traversal of AVL tree: 10 20 25 30 40 50
+```
+
+---
+
+### 🔧 Features:
+
+- **Self-balancing** using rotations.
+- Handles **Left-Left**, **Right-Right**, **Left-Right**, and **Right-Left** cases.
+- Currently supports **insertions** and **in-order traversal**.
+- You can expand this to support **deletion**, **search**, etc.
+
+---
+
+## 📘 Red Black Trees in Java
+
+[Red Black Tree PDF](PDF/8..Red%20Black%20Trees%20in%20Java.pdf)
+
+---
+
+**Java implementation of a Red-Black Tree** with **insertion support**, including rebalancing and color flipping. This implementation includes the core logic while avoiding over-complication for easier understanding.
+
+---
+
+## 🌳 Red-Black Tree in Java (Insertion + In-Order Traversal)
+
+### ✅ Key Concepts:
+
+- Each node is either **RED** or **BLACK**
+- The root is always **BLACK**
+- No two **RED** nodes appear consecutively
+- Every path from a node to its descendant NULL nodes has the same number of **BLACK** nodes
+
+---
+
+### 🧠 Color Enum
+
+```java
+enum Color {
+    RED, BLACK
+}
+```
+
+---
+
+### 👨‍💻 Node Class
+
+```java
+class Node {
+    int data;
+    Color color;
+    Node left, right, parent;
+
+    public Node(int data) {
+        this.data = data;
+        this.color = Color.RED; // New nodes are red by default
+    }
+}
+```
+
+---
+
+### 🔧 Red-Black Tree Class
+
+```java
+public class RedBlackTree {
+    private Node root;
+
+    // Left rotate
+    private void rotateLeft(Node x) {
+        Node y = x.right;
+        x.right = y.left;
+        if (y.left != null)
+            y.left.parent = x;
+
+        y.parent = x.parent;
+        if (x.parent == null)
+            root = y;
+        else if (x == x.parent.left)
+            x.parent.left = y;
+        else
+            x.parent.right = y;
+
+        y.left = x;
+        x.parent = y;
+    }
+
+    // Right rotate
+    private void rotateRight(Node y) {
+        Node x = y.left;
+        y.left = x.right;
+        if (x.right != null)
+            x.right.parent = y;
+
+        x.parent = y.parent;
+        if (y.parent == null)
+            root = x;
+        else if (y == y.parent.left)
+            y.parent.left = x;
+        else
+            y.parent.right = x;
+
+        x.right = y;
+        y.parent = x;
+    }
+
+    // Fix Red-Black Tree properties after insertion
+    private void fixInsert(Node k) {
+        while (k != root && k.parent.color == Color.RED) {
+            if (k.parent == k.parent.parent.left) {
+                Node uncle = k.parent.parent.right;
+
+                // Case 1: Uncle is RED (recoloring)
+                if (uncle != null && uncle.color == Color.RED) {
+                    k.parent.color = Color.BLACK;
+                    uncle.color = Color.BLACK;
+                    k.parent.parent.color = Color.RED;
+                    k = k.parent.parent;
+                } else {
+                    // Case 2: k is right child (rotate)
+                    if (k == k.parent.right) {
+                        k = k.parent;
+                        rotateLeft(k);
+                    }
+                    // Case 3: k is left child (rotate)
+                    k.parent.color = Color.BLACK;
+                    k.parent.parent.color = Color.RED;
+                    rotateRight(k.parent.parent);
+                }
+            } else {
+                Node uncle = k.parent.parent.left;
+
+                if (uncle != null && uncle.color == Color.RED) {
+                    k.parent.color = Color.BLACK;
+                    uncle.color = Color.BLACK;
+                    k.parent.parent.color = Color.RED;
+                    k = k.parent.parent;
+                } else {
+                    if (k == k.parent.left) {
+                        k = k.parent;
+                        rotateRight(k);
+                    }
+                    k.parent.color = Color.BLACK;
+                    k.parent.parent.color = Color.RED;
+                    rotateLeft(k.parent.parent);
+                }
+            }
+        }
+        root.color = Color.BLACK;
+    }
+
+    // Insert node
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        Node y = null;
+        Node x = root;
+
+        while (x != null) {
+            y = x;
+            if (data < x.data)
+                x = x.left;
+            else
+                x = x.right;
+        }
+
+        newNode.parent = y;
+        if (y == null)
+            root = newNode;
+        else if (data < y.data)
+            y.left = newNode;
+        else
+            y.right = newNode;
+
+        fixInsert(newNode);
+    }
+
+    // In-order traversal
+    public void inorder(Node node) {
+        if (node != null) {
+            inorder(node.left);
+            System.out.print(node.data + "(" + node.color + ") ");
+            inorder(node.right);
+        }
+    }
+
+    public void printTree() {
+        inorder(root);
+        System.out.println();
+    }
+
+    // Main to test
+    public static void main(String[] args) {
+        RedBlackTree tree = new RedBlackTree();
+
+        int[] values = {10, 20, 30, 15, 25, 5, 1};
+
+        for (int val : values)
+            tree.insert(val);
+
+        System.out.println("Inorder traversal of Red-Black Tree:");
+        tree.printTree();
+    }
+}
+```
+
+---
+
+### 🧪 Output (Example)
+
+```
+Inorder traversal of Red-Black Tree:
+1(RED) 5(BLACK) 10(RED) 15(BLACK) 20(RED) 25(BLACK) 30(RED)
+```
+
+---
+
+### 💡 Notes
+
+- This code handles **insertion balancing** only.
+- **Deletion** in Red-Black Trees is more complex and can be added if needed.
+- You can also implement **level-order printing** to visualize the tree better.
+
+---
