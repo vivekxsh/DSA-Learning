@@ -327,3 +327,271 @@ public static int fibonacciSwapping(int n) {
 ![important](images/image3.png)
 
 ---
+
+### Tribonacci Sequence
+
+```java
+
+public class TribonacciSequence {
+
+    // ****** Calculate Tribonacci by using simple recursion ******
+    public static int tribonacci(int n) {
+        if (n == 0 || n == 1) {
+            return 0;
+        }
+        if (n == 2) {
+            return 1;
+        }
+
+        return tribonacci(n - 1) + tribonacci(n - 2) + tribonacci(n - 3);
+
+    }
+
+    // ***** Calculate Tribonacci by using DP [Tabulation method] *****
+    static int fibonacciDP(int n) {
+        if (n == 0 || n == 1) {
+            return 0;
+        }
+        if (n == 2) {
+            return 1;
+        }
+
+        int dp[] = new int[n + 1];
+        dp[0] = 0;
+        dp[1] = 0;
+        dp[2] = 1;
+
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
+        }
+
+        return dp[n];
+    }
+
+    // ***** Calculate Tribonacci by using DP [Memoization method] *****
+
+    static int tribonacci(int n, int dp[]) {
+        if (n == 0 || n == 1) {
+            return 0;
+        }
+        if (n == 2) {
+            return 1;
+        }
+
+        if (dp[n] != 0) {
+            return dp[n];
+        }
+
+        dp[n] = tribonacci(n - 1, dp) + tribonacci(n - 2, dp) + tribonacci(n - 3, dp);
+
+        return dp[n];
+    }
+
+    // ***** Calculate Tribonacci By using Swapping technique *****
+
+    @SuppressWarnings("unused")
+    static int tribonacciSwap(int n) {
+        if (n == 0 || n == 1) {
+            return 0;
+        }
+        if (n == 2) {
+            return 1;
+        }
+
+        int prev1 = 0, prev2 = 0, prev3 = 1;
+        for (int i = 3; i <= n; i++) {
+            int trib = prev1 + prev2 + prev3;
+
+            int temp = prev1;
+            prev1 = prev2;
+            prev2 = prev3;
+            prev3 = trib;
+        }
+
+        return prev3;
+    }
+
+    public static void main(String[] args) {
+
+        int n = 5;
+        System.out.println("Calculate Tribonacci using simple recursion.");
+        for (int i = 0; i <= n; i++) {
+            System.out.print(tribonacci(i) + " ");
+        }
+        System.out.println();
+
+        System.out.println("Calculate Tribonacci by using DP [Tabulation method].");
+        for (int i = 0; i <= n; i++) {
+            System.out.print(fibonacciDP(i) + " ");
+        }
+        System.out.println();
+
+        System.out.println("Calculate Tribonacci by using DP [Memoization method].");
+        int dp[] = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            System.out.print(tribonacci(i, dp) + " ");
+        }
+        System.out.println();
+
+        System.out.println("Calculate Tribonacci By using Swapping technique.");
+        for (int i = 0; i <= n; i++) {
+            System.out.print(tribonacciSwap(i) + " ");
+        }
+        System.out.println();
+
+    }
+}
+```
+
+---
+
+### **"climbing stairs" problem**
+
+![stairs](images/image4.png)
+
+---
+
+![stairs](images/image5.png)
+
+---
+
+### Problem statement:
+
+You are climbing a staircase that has `n` steps. Each time you can climb either 1 or 2 steps. How many distinct ways are there to reach the top?
+
+---
+
+### Explanation:
+
+- If you're at step `i`, you could have gotten there either from step `i-1` (by taking 1 step) or step `i-2` (by taking 2 steps).
+- So the number of ways to reach step `i` is the sum of ways to reach `i-1` and `i-2`.
+
+---
+
+### Simple Java solution (using Dynamic Programming):
+
+```java
+
+import java.util.Scanner;
+
+public class ClimbingStairs {
+
+    // ****** Recursion solution O(2^n) ******
+    static int climbingStairs(int n) {
+
+        if (n == 1 || n == 2) {
+            return n;
+        }
+
+        return climbingStairs(n - 1) + climbingStairs(n - 2);
+    }
+
+    // ****** DP(Dynamic programming) [Tabulation method] O(n) ******
+    static int climbingStairsDP(int n) {
+
+        if (n <= 2) {
+            return n;
+        }
+
+        int dp[] = new int[n + 1];
+        dp[1] = 1;
+        dp[2] = 2;
+
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+
+        return dp[n];
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+
+        System.out.println("Calculate climbing stairs by using recursion: " + climbingStairs(n));
+
+        System.out.println("Calculate climbing stairs by using DP [Tabulation method]: " + climbingStairsDP(n));
+
+        sc.close();
+
+    }
+}
+
+```
+
+---
+
+### Explanation of the code:
+
+- `dp[i]` stores the number of ways to reach step `i`.
+- Base cases: `dp[1] = 1`, `dp[2] = 2`.
+- Then we build up from `3` to `n` using the relation `dp[i] = dp[i-1] + dp[i-2]`.
+- Finally, return `dp[n]`.
+
+---
+
+### Climbing Stairs variations
+
+> The person can jump 1 step, 2 step, or 3 step.
+
+```java
+
+import java.util.Scanner;
+
+public class ClimbingStairsVariation {
+
+    // ******* Recusion method ******
+    static int climbingStairs(int n) {
+
+        if (n <= 2) {
+            return n;
+        }
+        if (n == 3) {
+            return 4;
+        }
+
+        return climbingStairs(n - 1) + climbingStairs(n - 2) + climbingStairs(n - 3);
+    }
+
+    // ******* Using DP *******
+    static int climbingStairsDP(int n) {
+
+        if (n <= 3) {
+            if (n == 3) {
+                return 4;
+            } else {
+                return n;
+            }
+        }
+
+        int dp[] = new int[n + 1];
+
+        dp[1] = 1;
+        dp[2] = 2;
+        dp[3] = 4;
+
+        for (int i = 4; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
+        }
+
+        return dp[n];
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+
+        System.out.println(climbingStairs(n));
+        System.out.println(climbingStairsDP(n));
+
+        sc.close();
+    }
+}
+```
